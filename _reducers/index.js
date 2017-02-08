@@ -5,7 +5,7 @@ import getTimeline     from './get_timeline';
 import getDirectory    from './get_directory';
 import getPaper        from './get_paper';
 
-var appReducer = (state = {}, action) => {
+var appReducer = (state, action) => {
     switch (action.type) {
         case actionTypes.GET_TAGS:
             return getTags(state, action);
