@@ -24,11 +24,11 @@ a blog site by Stan_Lee using node.js as Server,react as FE,mysql as Database
 
 因为3.0这个版本是在2.0的基础上改的，所以很多东西没设计好。
 *****
-jquery和jquery-ui依旧在用，还是用的静态资源引入，完全浪费了nodejs；
+**jquery和jquery-ui依旧在用，还是用的静态资源引入，完全浪费了nodejs；**
 *****
-还有就是bootstrap和font-awesome这两个，因为里面要引用到字体文件，有一些字体文件的名称后面有关于版本的，可能是正则没写好，导致没法打包；
+**还有就是bootstrap和font-awesome这两个，因为里面要引用到字体文件，有一些字体文件的名称后面有关于版本的，可能是正则没写好，导致没法打包；**
 *****
-关于css样式部分，因为index页面和home页面的样式部分重复冲突了，所以index页面部分用了行内样式，没有把这部分的css打包压缩进来。
+**关于css样式部分，因为index页面和home页面的样式部分重复冲突了，所以index页面部分用了行内样式，没有把这部分的css打包压缩进来。**
 *****
 还有一些其他的小问题，杂七杂八还有好多，因为是当做练手项目，暂时也没考虑太多，正常能运行就好。
 
