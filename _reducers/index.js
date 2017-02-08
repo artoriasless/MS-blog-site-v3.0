@@ -20,7 +20,7 @@ var appReducer = (state = {}, action) => {
             return getDirectory(state, action);
         
         case actionTypes.GET_PAPER:
-            return getDirectory(state, action);
+            return getPaper(state, action);
         
         default:
             return state;
