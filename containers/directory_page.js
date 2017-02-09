@@ -31,6 +31,12 @@ class DirectoryPage extends React.Component {
         });
     };
 
+    changePaper(newPaper) {
+        this.setState({
+            currentPaper: newPaper
+        })
+    };
+
     componentDidMount() {
         pageEffects();
         $('#bodyContainer').addClass('hidden');
@@ -91,7 +97,7 @@ class DirectoryPage extends React.Component {
                     <div className = "body-content row">
                         <div className = "col-xs-3">
                             {/* notice部分 */}
-                            <CommonNotice />
+                            <CommonNotice changePaper = { this.changePaper.bind(this) }/>
 
                             {/* 文章的一些标签 */}
                             <CommonTags changeDirectoryFilter = { this.changeDirectoryFilter.bind(this) }/>

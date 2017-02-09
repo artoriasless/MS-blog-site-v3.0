@@ -4,16 +4,6 @@ a blog site by Stan_Lee using node.js as Server,react as FE,mysql as Database
 ##【关于此项目】 ##
 本项目基于上两个版本，在原先两个版本上进行修改，可点击以下两个链接查看源码及说明。
 
-**运行说明：项目所需的依赖包全都生命在package.json了（有一些好像是多余了）**
-
-**控制台 npm install 安装依赖（有点多，可能会有点慢）**
-
-**控制台 webpack 打个包（已安装了全局webpack的前提，好像我的package.json也有webpack，所以没安装全局webpack也没关系的样子）**
-
-**控制台 node server，启动服务，浏览器中访问 127.0.0.1:8181，关于访问的端口号，在 server.js 中可以进行修改**
-
-**关于数据库，本地需要安装mysql，然后项目的mysql配置参数，在 models 里面的 sql_options，主要是数据库名、用户名和密码**
-
 【ver 1.0】 
 
 访问地址： https://monkingstand.github.io/ 

@@ -2,6 +2,21 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class CommonLatestItem extends React.Component {
+    constructor() {
+        super();
+
+        this.clickHandler = this.clickHandler.bind(this);
+    };
+
+    clickHandler(e) {
+        const { latestItem, changePaper } = this.props;
+        const targetPaper = {
+                currentPaperId: latestItem.id
+            };
+        
+        changePaper(targetPaper);
+    };
+
     render() {
         const { latestItem, latestIndex } = this.props;
         const param_title  = '【' + latestItem.date + '】' + latestItem.title;
@@ -21,6 +36,7 @@ class CommonLatestItem extends React.Component {
                     } }
                     title = { param_title }
                     data-no = { param_dataNo } 
+                    onClick = { (e) => this.clickHandler(e) }
                 >
                     { text_title }
                 </Link>

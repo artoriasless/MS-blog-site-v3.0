@@ -8,6 +8,8 @@ class PaperContent extends React.Component {
     constructor() {
         super();
 
+        this.updateData = this.updateData.bind(this);
+
         this.state = {
             paperTitle  : '',
             paperDate   : '',
@@ -24,10 +26,11 @@ class PaperContent extends React.Component {
         };
     };
 
-    componentDidMount() {
-        const domain     = common_getDomain();
-        const jsonData   = this.props.currentPaper;
-        const requestUrl = domain + '/getPaper.node';
+    updateData() {
+        const domain         = common_getDomain();
+        const jsonData       = this.props.currentPaper;
+        const currentPaperId = jsonData.currentPaperId;
+        const requestUrl     = domain + '/getPaper.node';
 
         var self = this;
 
@@ -36,14 +39,14 @@ class PaperContent extends React.Component {
             const paperCount = paperList.length;
 
             if (paperCount == 2) {
-                if (paperList[0].id == jsonData.currentPaperId) {
+                if (paperList[0].id == currentPaperId) {
                     self.setState({
                         paperTitle  : paperList[0].title,
                         paperDate   : paperList[0].date,
                         paperTag    : (paperList[0].subtag ? (paperList[0].tag + '，' + paperList[0].subtag) : paperList[0].tag),
                         paperContent: paperList[0].content,
                         prevPaper: {
-                            id   : jsonData.currentPaperId,
+                            id   : currentPaperId,
                             title: '已经是第一篇了！没有上一篇了！'
                         },
                         nextPaper: {
@@ -63,7 +66,7 @@ class PaperContent extends React.Component {
                             title: paperList[0].title
                         },
                         nextPaper: {
-                            id   : jsonData.currentPaperId,
+                            id   : currentPaperId,
                             title: '已经是最后一篇了！没有下一篇了！'
                         }
                     });
@@ -90,9 +93,23 @@ class PaperContent extends React.Component {
         });
     };
 
+    componentDidMount() {
+        this.updateData();
+    };
+
+    componentDidUpdate() {
+        this.updateData();
+    }
+
     render() {
+        const currentPaperId = this.props.currentPaper.currentPaperId;
+
         return (
-            <div id = "paperContent" className = "content-block hidden">
+            <div 
+                id = "paperContent" 
+                className = "content-block hidden"
+                data-paperId = { currentPaperId }
+            >
                 <div className = "paper-title">
                     <h1>
                         { this.state.paperTitle }

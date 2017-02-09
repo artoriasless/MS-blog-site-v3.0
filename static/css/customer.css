@@ -276,3 +276,72 @@ body.init-index {
 	-moz-animation: scroll-hover 1.5s infinite;
 	-webkit-animation: scroll-hover 1.5s infinite;
 }
+
+/*====================
+	new paper
+  ====================*/
+#newPaperPage .new-paper-container .btn {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+#newPaperPage .new-paper-container .page-header {
+	height: 35px;
+	margin: 10px 0;
+}
+#newPaperPage .new-paper-container .page-header h1 {
+	height: 35px;
+	line-height: 35px;
+	font-weight: bold;
+}
+#newPaperPage .new-paper-container .new-paper-paragraph-type .form-group {
+	height: 22px;
+	line-height: 22px;
+	margin: 0;
+	padding-left: 25px;
+}
+#newPaperPage .new-paper-container .new-paper-paragraph-type .radio {
+	height: 22px;
+	overflow: hidden;
+}
+#newPaperPage .new-paper-container .new-paper-paragraph-type label {
+	width: 100%;
+}
+#newPaperPage .new-paper-container .new-paper-paragraph-type label:after {
+	content: "-----------------------------------------------------------------------------------";
+	color: #ddd;
+}
+#newPaperPage .new-paper-container .new-paper-paragraph-kit .btn-container {
+	height: 50px;
+}
+#newPaperPage .new-paper-container .new-paper-input-area {
+	height: 300px;  /* 310 - 10 */
+}
+#newPaperPage .new-paper-container .new-paper-input-area .form-group {
+	margin: 0;
+}
+#newPaperPage .new-paper-container .new-paper-input-area textarea {
+	height: 195px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	resize: none;
+}
+#newPaperPage .new-paper-container .new-paper-input-area .code-input {
+	white-space: nowrap;
+	overflow-x: scroll;
+}
+#newPaperPage .new-paper-container .new-paper-input-area .insert-btn-container {
+	height: 50px;
+	text-align: right;
+}
+#newPaperPage .new-paper-container .new-paper-submit-container .submit-btn-container {
+	text-align: right;
+}
+#newPaperPage .new-paper-container .new-paper-view-container .view-content {
+	padding: 10px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+}
+#newPaperPage .new-paper-container #textContent, 
+#newPaperPage .new-paper-container #htmlContent {
+	font-size: 0.85em;
+}

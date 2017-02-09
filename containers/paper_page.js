@@ -12,6 +12,18 @@ class PaperPage extends React.Component {
     constructor(props) {
         super(props);
 
+        var currentPaperId = document.URL.split('=')[1],
+            defaultState;
+
+        if (Boolean(props.location.state) && Boolean(props.location.state.currentPaper)) {
+            defaultState =  props.location.state.currentPaper;
+        }
+        else {
+            defaultState = {
+                    currentPaperId: currentPaperId
+                };
+        }
+
         this.scrollToTop = this.scrollToTop.bind(this);
 
         this.state = {
@@ -19,9 +31,7 @@ class PaperPage extends React.Component {
                 keyword    : '',
                 keywordType: ''
             },
-            currentPaper  : {
-                currentPaperId: props.location.state.currentPaperId
-            }
+            currentPaper  : defaultState
         };
     };
 
@@ -35,10 +45,10 @@ class PaperPage extends React.Component {
         });
     };
 
-    changePaper(paper) {
+    changePaper(newPaper) {
         this.setState({
-            currentPaper: paper
-        })
+            currentPaper: newPaper
+        });
     };
 
     componentDidMount() {

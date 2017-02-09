@@ -2,6 +2,12 @@
     this module is for page effects
  */
 var pageEffects = function() {
+    /* tab plugin init */
+    $('#viewToggleContainer a').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    });
+
     /* toggle notice content */
     $('#noticeToggleBtn').on('click', function() {
         var $icon = $(this).find('.fa');

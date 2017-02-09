@@ -6,6 +6,7 @@ import App           from './containers/app';
 import IndexPage     from './containers/index_page';
 import DirectoryPage from './containers/directory_page';
 import PaperPage     from './containers/paper_page';
+import NewPaper      from './containers/new_paper';
 
 require('./static/plugins/roundabout/roundabout2.css');
 require('./static/css/common.css');
@@ -27,6 +28,7 @@ var render = () => {
                     <Route path = "index" component = { IndexPage } />
                     <Route path = "directory" component = { DirectoryPage } />
                     <Route path = "paperId=*" component = { PaperPage } />
+                    <Route path = "newPaper" component = { NewPaper } />
                 </Route>
             </Router>
         ), appDom
