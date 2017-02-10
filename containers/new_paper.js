@@ -12,10 +12,51 @@ class NewPaper extends React.Component {
         super();
 
         this.scrollToTop = this.scrollToTop.bind(this);
+
+        this.state = {
+            selectedParagraphType: {
+                name : 'normal',
+                begin: '<p>',
+                end  : '</p>'
+            },
+            contentList  : []
+        };
     };
 
     scrollToTop() {
         $('#topAnchor').HoverTreeScroll(750);
+    };
+
+    changeParagraphType(newType) {
+        this.setState({
+            selectedParagraphType: newType
+        });
+    };
+
+    insertNewParagraph(content) {
+        const selectedParagraphType = this.state.selectedParagraphType;
+        const oldContentList        = this.state.contentList.slice(0);
+        const oldContentCloseTag    = (oldContentList.length !== 0) ? oldContentList[oldContentList.length - 1] : '';
+        
+        var newContentList;
+
+        if (selectedParagraphType.name === 'title' || selectedParagraphType.name === 'normal') {
+            newContentList = oldContentList.concat(content);
+        }
+        else {
+            if (oldContentCloseTag !== selectedParagraphType.containerEnd || oldContentCloseTag == '<br>') {
+                /* first time to add or content is <br> */
+                newContentList = oldContentList.concat(content);
+            }
+            else {
+                oldContentList.pop();
+                newContentList = oldContentList.concat(content.slice(1));
+            }
+        }
+        
+        this.setState({
+            contentList: newContentList
+        });
     };
 
     componentDidMount() {
@@ -53,19 +94,19 @@ class NewPaper extends React.Component {
                     <div className = "body-content row new-paper-container">
                         <div className = "col-xs-6">
                             {/* 段落类别选择 */}
-                            <ParagraphType />
+                            <ParagraphType changeParagraphType = { this.changeParagraphType.bind(this) }/>
                             {/* 段落元件 */}
-                            <ParagraphKit />
+                            <ParagraphKit insertNewParagraph = { this.insertNewParagraph.bind(this) }/>
                         </div>
 
                         {/* 输入区域 */}
-                        <InputArea />
+                        <InputArea selectedParagraphType = { this.state.selectedParagraphType } insertNewParagraph = { this.insertNewParagraph.bind(this) }/>
                         
                         {/* 提交文章保存 */}
-                        <SubmitContainer />
+                        <SubmitContainer contentList = { this.state.contentList }/>
 
                         {/* 预览区域 */}
-                        <ViewContent />
+                        <ViewContent contentList = { this.state.contentList }/>
                     </div>
                 </div>
             </div>

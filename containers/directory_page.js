@@ -12,7 +12,24 @@ class DirectoryPage extends React.Component {
     constructor(props) {
         super(props);
 
-        const defaultState = Boolean(props.location.state.keyword) ? props.location.state : { keyword: '', keywordType: '' };
+        var defaultState;
+        if (Boolean(props.location.state)) {
+            if (Boolean(props.location.state.keyword)) {
+                defaultState = props.location.state;
+            }
+            else {
+                defaultState = {
+                        keyword    : '',
+                        keywordType: ''
+                    };
+            }
+        }
+        else {
+            defaultState = {
+                    keyword    : '',
+                    keywordType: ''
+                };
+        }
 
         this.scrollToTop = this.scrollToTop.bind(this);
 

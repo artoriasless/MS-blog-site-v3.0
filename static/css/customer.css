@@ -311,16 +311,16 @@ body.init-index {
 	color: #ddd;
 }
 #newPaperPage .new-paper-container .new-paper-paragraph-kit .btn-container {
-	height: 50px;
+	height: 42px;
 }
 #newPaperPage .new-paper-container .new-paper-input-area {
-	height: 300px;  /* 310 - 10 */
+	height: 270px;
 }
 #newPaperPage .new-paper-container .new-paper-input-area .form-group {
 	margin: 0;
 }
 #newPaperPage .new-paper-container .new-paper-input-area textarea {
-	height: 195px;
+	height: 157px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	resize: none;
@@ -332,6 +332,10 @@ body.init-index {
 #newPaperPage .new-paper-container .new-paper-input-area .insert-btn-container {
 	height: 50px;
 	text-align: right;
+}
+#newPaperPage .new-paper-container .new-paper-submit-container textarea {
+	height: 50px;
+	resize: none;
 }
 #newPaperPage .new-paper-container .new-paper-submit-container .submit-btn-container {
 	text-align: right;

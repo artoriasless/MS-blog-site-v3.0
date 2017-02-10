@@ -9,6 +9,7 @@ class PaperContent extends React.Component {
         super();
 
         this.updateData = this.updateData.bind(this);
+        this.addCodeCount = this.addCodeCount.bind(this);
 
         this.state = {
             paperTitle  : '',
@@ -90,6 +91,33 @@ class PaperContent extends React.Component {
             }
 
             $('.paper-content').append(self.state.paperContent);
+            self.addCodeCount();
+        });
+    };
+
+    addCodeCount() {
+        $('.code-container').each(function() {
+            var count = 1;
+
+            $(this).find('xmp').each(function() {
+                if ($(this).hasClass('indent-4') && count > 100) { 
+                    $(this).addClass('indent-lg'); 
+                }
+                else if ($(this).hasClass('indent-5') && count > 9 && count < 100) { 
+                    $(this).addClass('indent-sm'); 
+                }
+                else if ($(this).hasClass('indent-5') && count < 9) { 
+                    $(this).addClass('indent-xs'); 
+                }
+                else if ($(this).hasClass('indent-6') && count > 9 && count < 100) { 
+                    $(this).addClass('indent-sm'); 
+                }
+                else if ($(this).hasClass('indent-6') && count < 9) { 
+                    $(this).addClass('indent-xs'); 
+                }
+
+                $(this).attr('data-line', count++);
+            });
         });
     };
 
