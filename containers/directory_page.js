@@ -120,7 +120,7 @@ class DirectoryPage extends React.Component {
                             <CommonTags changeDirectoryFilter = { this.changeDirectoryFilter.bind(this) }/>
 
                             {/* 最近的5篇文章的标题 */}
-                            <CommonLatest />
+                            <CommonLatest changePaper = { this.changePaper.bind(this) }/>
 
                             {/* 时间线 */}
                             <CommonTimeline changeDirectoryFilter = { this.changeDirectoryFilter.bind(this) }/>

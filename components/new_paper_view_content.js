@@ -40,11 +40,18 @@ class ViewHtml extends React.Component {
         const contentCount = contentList.length;
         const contentText  = contentList.join('');
         
+        var $textContent = $('#textContent'),
+            $htmlContent = $('#htmlContent');
+        
         /* render text content */
-        $('#textContent').empty().append(contentText);
+        $textContent.empty().append(contentText);
         /* render html content */
+        $htmlContent.empty();
         for (let i = 0; i < contentCount; i ++) {
-            console.info('todo for html content');
+            var tmpDiv = $('<div></div>');
+
+            tmpDiv.text(contentList[i]);
+            $htmlContent.append(tmpDiv);
         }
 
         this.addCodeCount();

@@ -33,7 +33,15 @@ class CommonTags extends React.Component {
                 >
                     <dt>Tags</dt>
                     {
-                        this.state.tags.map((tagItem, tagIndex) => <CommonTagsItem tagItem = { tagItem } key = { tagIndex } changeDirectoryFilter = { this.props.changeDirectoryFilter } />)
+                        this.state.tags.map((tagItem, tagIndex) => {
+                            return (
+                                <CommonTagsItem 
+                                    key                   = { tagIndex }
+                                    tagItem               = { tagItem } 
+                                    changeDirectoryFilter = { this.props.changeDirectoryFilter }
+                                />
+                            )
+                        })
                     }
                 </dl>
             </div>

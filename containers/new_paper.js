@@ -14,6 +14,10 @@ class NewPaper extends React.Component {
         this.scrollToTop = this.scrollToTop.bind(this);
 
         this.state = {
+            addedLink: {
+                linkVal  : '',
+                linkTitle: ''
+            },
             selectedParagraphType: {
                 name : 'normal',
                 begin: '<p>',
@@ -25,6 +29,12 @@ class NewPaper extends React.Component {
 
     scrollToTop() {
         $('#topAnchor').HoverTreeScroll(750);
+    };
+
+    changeAddedLink(newLink) {
+        this.setState({
+            addedLink: newLink
+        });
     };
 
     changeParagraphType(newType) {
@@ -53,6 +63,15 @@ class NewPaper extends React.Component {
                 newContentList = oldContentList.concat(content.slice(1));
             }
         }
+        
+        this.setState({
+            contentList: newContentList
+        });
+    };
+
+    deleteLatestParagraph() {
+        const listCount      = this.state.contentList.length;
+        const newContentList = (listCount === 0) ? [] : this.state.contentList.slice(0, -1);
         
         this.setState({
             contentList: newContentList
@@ -96,11 +115,20 @@ class NewPaper extends React.Component {
                             {/* 段落类别选择 */}
                             <ParagraphType changeParagraphType = { this.changeParagraphType.bind(this) }/>
                             {/* 段落元件 */}
-                            <ParagraphKit insertNewParagraph = { this.insertNewParagraph.bind(this) }/>
+                            <ParagraphKit 
+                                insertNewParagraph = { this.insertNewParagraph.bind(this) } 
+                                changeAddedLink    = { this.changeAddedLink.bind(this) }
+                            />
                         </div>
 
                         {/* 输入区域 */}
-                        <InputArea selectedParagraphType = { this.state.selectedParagraphType } insertNewParagraph = { this.insertNewParagraph.bind(this) }/>
+                        <InputArea 
+                            addedLink             = { this.state.addedLink } 
+                            selectedParagraphType = { this.state.selectedParagraphType } 
+                            insertNewParagraph    = { this.insertNewParagraph.bind(this) } 
+                            changeAddedLink       = { this.changeAddedLink.bind(this) }
+                            deleteLatestParagraph = { this.deleteLatestParagraph.bind(this) }
+                        />
                         
                         {/* 提交文章保存 */}
                         <SubmitContainer contentList = { this.state.contentList }/>

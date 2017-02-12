@@ -4,7 +4,9 @@ var controllerList = {
     '/getTimeline.node'       : 'get_timeline',
     '/getDirectory.node'      : 'get_directory',
     '/getDirectoryFilter.node': 'get_directory_filter',
-    '/getPaper.node'          : 'get_paper'
+    '/getPaper.node'          : 'get_paper',
+
+    '/addPaper.node': 'add_paper'
 };
 
 var controller = function(request, response) {

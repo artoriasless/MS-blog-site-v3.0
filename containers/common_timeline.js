@@ -59,7 +59,15 @@ class CommonTimeline extends React.Component {
                         </div>
                     </dt>
                     {
-                        this.state.timeline.map((timelineItem, timelineIndex) => <CommonTimelineItem timelineItem = { timelineItem } key = { timelineIndex } changeDirectoryFilter = { this.props.changeDirectoryFilter }/>)
+                        this.state.timeline.map((timelineItem, timelineIndex) => {
+                            return (
+                                <CommonTimelineItem 
+                                    key                   = { timelineIndex } 
+                                    timelineItem          = { timelineItem } 
+                                    changeDirectoryFilter = { this.props.changeDirectoryFilter }
+                                />
+                            )
+                        })
                     }
                 </dl>
             </div>

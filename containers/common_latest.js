@@ -33,7 +33,16 @@ class CommonLatest extends React.Component {
                 >
                     <dt>Latest</dt>
                     {
-                        this.state.latest.map((latestItem, latestIndex) => <CommonLatestItem latestItem = { latestItem } latestIndex = { latestIndex } key = { latestIndex } changePaper = { this.props.changePaper }/>)
+                        this.state.latest.map((latestItem, latestIndex) => {
+                            return (
+                                <CommonLatestItem 
+                                    key         = { latestIndex } 
+                                    latestItem  = { latestItem } 
+                                    latestIndex = { latestIndex } 
+                                    changePaper = { this.props.changePaper }
+                                />
+                            )
+                        })
                     }
                 </dl>
             </div>

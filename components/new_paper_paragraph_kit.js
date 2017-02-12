@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class ParagraphKit extends React.Component {
     constructor() {
@@ -15,7 +16,19 @@ class ParagraphKit extends React.Component {
     };
 
     addKitLink(e) {
+        const $linkVal        = ReactDOM.findDOMNode(this.refs.linkVal);
+        const $linkTitle      = ReactDOM.findDOMNode(this.refs.linkTitle);
+        const changeAddedLink = this.props.changeAddedLink;
 
+        if (Boolean($linkVal.value) && Boolean($linkTitle.value)) {
+            changeAddedLink({
+                linkVal  : $linkVal.value,
+                linkTitle: $linkTitle.value
+            });
+            $linkVal.value = '';
+            $linkTitle.value = '';
+        }
+        return true;
     };
 
     render() {
@@ -38,6 +51,7 @@ class ParagraphKit extends React.Component {
                                 type = "text"
                                 className = "form-control"
                                 placeholder = "输入链接地址"
+                                ref = "linkVal"
                             />
                         </div>
                     </div>
@@ -50,6 +64,7 @@ class ParagraphKit extends React.Component {
                                 type = "text"
                                 className = "form-control"
                                 placeholder = "输入标题名称"
+                                ref = "linkTitle"
                             />
                         </div>
                     </div>
@@ -57,6 +72,7 @@ class ParagraphKit extends React.Component {
                         <button 
                             type = "button" 
                             className = "btn btn-default"
+                            onClick = { (e) => this.addKitLink(e) }
                         >
                             添加外链
                         </button>

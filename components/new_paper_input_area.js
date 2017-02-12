@@ -5,7 +5,8 @@ class InputArea extends React.Component {
     constructor() {
         super();
 
-        this.clickHandler = this.clickHandler.bind(this);
+        this.insertHandler = this.insertHandler.bind(this);
+        this.deleteHandler = this.deleteHandler.bind(this);
         this.enterListenerHandler = this.enterListenerHandler.bind(this);
     };
 
@@ -14,7 +15,7 @@ class InputArea extends React.Component {
 
         if (Boolean(contentVal)) {
             if (e.keyCode == 13) {
-                this.clickHandler(null);
+                this.insertHandler(null);
                 return true;
             }
             return false;
@@ -22,10 +23,10 @@ class InputArea extends React.Component {
         return false;
     };
 
-    clickHandler(e) {
+    insertHandler(e) {
         const { selectedParagraphType, insertNewParagraph } = this.props;
         const contentInput = ReactDOM.findDOMNode(this.refs.contentInput);
-        const contentVal   = contentInput.value;
+        const contentVal   = contentInput.value.replace('\n', '');
 
         var content;
 
@@ -60,8 +61,23 @@ class InputArea extends React.Component {
         contentInput.value = '';
     };
 
+    deleteHandler(e) {
+        const deleteLatestParagraph = this.props.deleteLatestParagraph;
+
+        deleteLatestParagraph();
+    };
+
     componentDidUpdate() {
-        ReactDOM.findDOMNode(this.refs.contentInput).value = '';
+        const { addedLink, changeAddedLink } = this.props;
+        const $contentInput = ReactDOM.findDOMNode(this.refs.contentInput);
+
+        if (Boolean(addedLink.linkVal) && Boolean(addedLink.linkTitle)) {
+            $contentInput.value = $contentInput.value + '<a class="external-link" target="_blank" href="' + addedLink.linkVal + '">' + addedLink.linkTitle + '</a>';
+            changeAddedLink({
+                linkVal  : '',
+                linkTitle: ''
+            });
+        }
     };
 
     render() {
@@ -70,6 +86,7 @@ class InputArea extends React.Component {
                 <div 
                     className = "new-paper-input-area"
                     data-selectedParagraphType = { this.props.selectedParagraphType.name }
+                    data-addedLink = { this.props.addedLink.linkVal }
                 >
                     <div className = "page-header">
                         <h1>输入区域</h1>
@@ -81,14 +98,25 @@ class InputArea extends React.Component {
                             onKeyDown = { (e) => this.enterListenerHandler(e) }
                         ></textarea>
                     </div>
-                    <div className = "insert-btn-container">
-                        <button 
-                            type = "button" 
-                            className = "btn btn-default"
-                            onClick = { (e) => this.clickHandler(e) }
-                        >
-                            插入段落
-                        </button>
+                    <div className = "row">
+                        <div className = "col-xs-6 delete-btn-container">
+                            <button 
+                                type = "button" 
+                                className = "btn btn-danger"
+                                onClick = { (e) => this.deleteHandler(e) }
+                            >
+                                删除上段
+                            </button>
+                        </div>
+                        <div className = "col-xs-6 insert-btn-container">
+                            <button 
+                                type = "button" 
+                                className = "btn btn-default"
+                                onClick = { (e) => this.insertHandler(e) }
+                            >
+                                插入段落
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

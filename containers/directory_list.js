@@ -20,7 +20,7 @@ class DirectoryList extends React.Component {
 
         var self = this;
 
-        if (Boolean(directoryFilter.keyword) || Boolean(directoryFilter.keywordType)) {
+        if (Boolean(directoryFilter.keyword) && Boolean(directoryFilter.keywordType)) {
             const requestUrl = domain + '/getDirectoryFilter.node';
 
             $.post(requestUrl, directoryFilter, function(data) {
@@ -66,7 +66,14 @@ class DirectoryList extends React.Component {
                 <hr/>
                 <div className = "paper-content">
                     {
-                        this.state.directory.map((directoryItem, directoryIndex) => <DirectoryItem directoryItem = { directoryItem } key = { directoryIndex } />)
+                        this.state.directory.map((directoryItem, directoryIndex) => {
+                            return (
+                                <DirectoryItem 
+                                    key           = { directoryIndex }
+                                    directoryItem = { directoryItem } 
+                                />
+                            )
+                        })
                     }
                 </div>
             </div>

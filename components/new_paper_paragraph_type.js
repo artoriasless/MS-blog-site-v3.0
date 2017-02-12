@@ -21,6 +21,11 @@ class ParagraphType extends React.Component {
                     begin: '<p>',
                     end  : '</p>'
                 },
+                'subChapter': {
+                    name : 'subChapter',
+                    begin: '<p class="sub-chapter">',
+                    end  : '</p>'
+                },
                 'code': {
                     name          : 'code',
                     begin         : '<xmp class="indent-/indentVal/">',
@@ -75,6 +80,19 @@ class ParagraphType extends React.Component {
                                 onChange = { (e) => this.changeType(e) }
                             />
                             <h2>普通段落</h2>
+                        </label>
+                    </div>
+                </div>
+                <div className = "form-group">
+                    <div className = "radio">
+                        <label>
+                            <input 
+                                type = "radio" 
+                                name = "paragraphType" 
+                                value = "subChapter"
+                                onChange = { (e) => this.changeType(e) }
+                            />
+                            <h2>段落标题</h2>
                         </label>
                     </div>
                 </div>
