@@ -20,8 +20,8 @@ class CommonNotice extends React.Component {
                         本网站仅供交流阅读使用，转载请注明出处，谢谢。
                     </dd>
                     <dd>
-                        <i className = "fa fa-warning text-danger"></i>
-                        关于博文中的代码显示不正常，因为使用了xmp标签,可能在IE下会显示不正常，关于解决方案，作者会尽快想一个好的解决办法的。
+                        <i className = "fa fa-warning"></i>
+                        关于博文中的代码，这一版本把xmp标签换成了pre标签，尖括号也做了转义，不同浏览器应该不会出现问题了吧
                     </dd>
                 </dl>
             </div>

@@ -31,7 +31,7 @@ class PaperPage extends React.Component {
                 keyword    : '',
                 keywordType: ''
             },
-            currentPaper  : defaultState
+            currentPaper: defaultState
         };
     };
 
@@ -71,14 +71,6 @@ class PaperPage extends React.Component {
             $('#loading').addClass('hidden');
             $('#paperContent').removeClass('hidden').addClass('fade-in-animate');
         }, 1000);
-    };
-
-    componentDidMount() {
-        pageEffects();
-        setTimeout(function(){
-            $('#loading').addClass('hidden');
-            $('#paperContent').removeClass('hidden').addClass('fade-in-animate');
-        }, 1000)
     };
 
     scrollToTop() {

@@ -28,8 +28,8 @@ class ParagraphType extends React.Component {
                 },
                 'code': {
                     name          : 'code',
-                    begin         : '<xmp class="indent-/indentVal/">',
-                    end           : '</xmp>',
+                    begin         : '<pre class="indent-/indentVal/">',
+                    end           : '</pre>',
                     containerBegin: '<div class="code-container"><code>',
                     containerEnd  : '</code></div>'
                 },
