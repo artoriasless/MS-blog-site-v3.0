@@ -114,7 +114,7 @@ class DirectoryPage extends React.Component {
                     <div className = "body-content row">
                         <div className = "col-xs-3">
                             {/* notice部分 */}
-                            <CommonNotice changePaper = { this.changePaper.bind(this) }/>
+                            <CommonNotice />
 
                             {/* 文章的一些标签 */}
                             <CommonTags changeDirectoryFilter = { this.changeDirectoryFilter.bind(this) }/>

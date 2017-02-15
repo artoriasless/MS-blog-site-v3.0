@@ -44,7 +44,7 @@ class DirectoryList extends React.Component {
         this.updateData();
     };
 
-    componentDidUpdate() {
+    componentWillUpdate() {
         this.updateData();
     };
 

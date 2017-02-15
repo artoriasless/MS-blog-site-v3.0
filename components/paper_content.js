@@ -8,8 +8,9 @@ class PaperContent extends React.Component {
     constructor() {
         super();
 
-        this.updateData = this.updateData.bind(this);
+        this.updateData   = this.updateData.bind(this);
         this.addCodeCount = this.addCodeCount.bind(this);
+        this.changePaper  = this.changePaper.bind(this);
 
         this.state = {
             paperTitle  : '',
@@ -89,9 +90,6 @@ class PaperContent extends React.Component {
                     }
                 });
             }
-
-            $('.paper-content').append(self.state.paperContent);
-            self.addCodeCount();
         });
     };
 
@@ -99,7 +97,7 @@ class PaperContent extends React.Component {
         $('.code-container').each(function() {
             var count = 1;
 
-            $(this).find('xmp').each(function() {
+            $(this).find('pre').each(function() {
                 if ($(this).hasClass('indent-4') && count > 100) { 
                     $(this).addClass('indent-lg'); 
                 }
@@ -121,16 +119,25 @@ class PaperContent extends React.Component {
         });
     };
 
+    changePaper(e) {
+        const targetPaper = {
+                currentPaperId: e.target.getAttribute('data-paperId')
+            };
+        
+        changePaper(targetPaper);
+    };
+
     componentDidMount() {
         this.updateData();
     };
 
-    componentDidUpdate() {
+    componentWillUpdate() {
         this.updateData();
-    }
+    };
 
     render() {
         const currentPaperId = this.props.currentPaper.currentPaperId;
+        const paperContent   = this.state.paperContent;
 
         return (
             <div 
@@ -156,7 +163,10 @@ class PaperContent extends React.Component {
                     </h3>
                 </div>
                 <hr/>
-                <div className = "paper-content"></div>
+                <div 
+                    className = "paper-content"
+                    dangerouslySetInnerHTML = {{ __html: paperContent }}
+                ></div>
                 <hr className = "footer-hr"/>
                 <div className = "paper-footer row">
                     <div className = "col-xs-6 pre-title">
@@ -164,12 +174,14 @@ class PaperContent extends React.Component {
                         <Link 
                             id = "prePaper"
                             title = { this.state.prevPaper.title }
+                            data-paperId = { this.state.prevPaper.id }
                             to = {{
                                 pathname: '/paperId=' + this.state.prevPaper.id,
                                 state   : {
                                     currentPaperId: this.state.prevPaper.id
                                 }
                             }}
+                            onClick = { e => this.changePaper(e) }
                         >
                             { this.state.prevPaper.title }
                         </Link>
@@ -178,12 +190,14 @@ class PaperContent extends React.Component {
                         <Link 
                             id = "nextPaper" 
                             title = { this.state.nextPaper.title }
+                            data-paperId = { this.state.nextPaper.id }
                             to = {{
                                 pathname: '/paperId=' + this.state.nextPaper.id,
                                 state   : {
                                     currentPaperId: this.state.nextPaper.id
                                 }
                             }}
+                            onClick = { e => this.changePaper(e) }
                         >
                             { this.state.nextPaper.title }
                         </Link>

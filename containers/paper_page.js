@@ -129,7 +129,10 @@ class PaperPage extends React.Component {
 
                         <div className = "col-xs-9">
                             {/* 文章内容 */}
-                            <PaperContent currentPaper = { this.state.currentPaper } />
+                            <PaperContent 
+                                currentPaper = { this.state.currentPaper } 
+                                changePaper = { this.changePaper.bind(this) }
+                            />
                         </div>
                     </div>
                 </div>
