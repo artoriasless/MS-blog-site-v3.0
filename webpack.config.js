@@ -15,7 +15,7 @@ module.exports = {
 
     devServer: {
         inline: true,
-        port  : 8080
+        port  : 8888
     },
 
     plugins: [
@@ -37,8 +37,12 @@ module.exports = {
                 loaders: ['style', 'css']
             },
             {
-                test: /\.(png|jpg|gif|ttf)$/,
+                test: /\.(png|jpg|gif)\?*$/,
                 loader: 'url?limit=1&name=images/[hash:8].[name].[ext]'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff)/, 
+                loader: 'file?name=fonts/[hash].[ext]'
             }
         ]
     }

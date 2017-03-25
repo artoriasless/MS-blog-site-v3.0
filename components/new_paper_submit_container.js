@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import $ from 'jquery';
-import common_formatTime from '../modules/format_time';
-import common_getDomain from '../modules/get_domain';
+
+import common_formatTime from '../modules/common_format_time';
+import common_getDomain  from '../modules/common_get_domain';
 
 class SubmitContainer extends React.Component {
     constructor() {

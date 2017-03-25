@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import FontAwesome from 'react-fontawesome';
 
 class CommonHeaderRight extends React.Component {
     render() {
@@ -11,7 +12,10 @@ class CommonHeaderRight extends React.Component {
                         to = '/index'
                     >
                         Back To Homepage&nbsp;
-                        <i className = "fa fa-sign-out"></i>
+                        <FontAwesome
+                            name = "sign-out"
+                            tag  = "i"
+                        />
                     </Link>
                 </li>
             </ul>

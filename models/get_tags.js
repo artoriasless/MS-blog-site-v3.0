@@ -1,7 +1,7 @@
 var mysql      = require('mysql'),
     sqlOptions = require('./sql_options').options,
     
-    getSqlStr = 'SELECT name AS tagName, (papers_count + 0) AS paperCount ' +
+    getSqlStr = 'SELECT name AS tagName, (papers_count + 0) AS papersCount ' +
                 'FROM tags_index ' +
                 'WHERE papers_count > 0',
     

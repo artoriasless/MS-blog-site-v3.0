@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import FontAwesome from 'react-fontawesome';
 
 class IndexHeader extends React.Component {
     render() {
@@ -48,7 +49,11 @@ class IndexHeader extends React.Component {
                             state   : passState
                         } }
                     >
-                        View Blog&nbsp;&nbsp;<i className = "fa fa-sign-in"></i>
+                        View Blog&nbsp;&nbsp;
+                        <FontAwesome 
+                            name = "sign-in"
+                            tag  = "i"
+                        />
                     </Link>
                 </h2>
             </header>

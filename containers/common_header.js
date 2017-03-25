@@ -10,7 +10,7 @@ class CommonHeader extends React.Component {
                 <div className = "nav-content">
                     <CommonHeaderLeft />
                     <div className = "nav-body">
-                        <CommonHeaderCenter changeDirectoryFilter = { this.props.changeDirectoryFilter } />
+                        <CommonHeaderCenter />
                         <CommonHeaderRight />
                     </div>
                 </div>
