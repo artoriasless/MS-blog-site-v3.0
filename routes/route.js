@@ -1,9 +1,13 @@
 const routeList = {
-    '/'              : '/index.html',
-    '/index'         : '/index.html',
-    '/index.html'    : '/index.html',
-    '/directory'     : '/index.html',
-    '/directory.html': '/index.html',
+    '/'                    : '/index.html',
+    '/index'               : '/index.html',
+    '/index.html'          : '/index.html',
+    '/directory'           : '/index.html',
+    '/directory.html'      : '/index.html',
+    '/directoryFilter'     : '/index.html',
+    '/directoryFilter.html': '/index.html',
+    '/paper'               : '/index.html',
+    '/paper.html'          : '/index.html',
     
     '/newPaper': '/index.html'
 };
@@ -11,9 +15,8 @@ const routeList = {
 var route = function(dirname, request, response) {
     let path = request.path;
 
-    if (routeList[path] || path.indexOf('paperId=')) {
-        // response.sendFile(dirname + routeList[path]);
-        response.sendFile(dirname + '/index.html');
+    if (routeList[path]) {
+        response.sendFile(dirname + routeList[path]);
     }
     else {
         response.sendFile(dirname + '/404.html');

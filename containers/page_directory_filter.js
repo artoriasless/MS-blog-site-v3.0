@@ -1,16 +1,16 @@
 import React from 'react';
-import CommonHeader   from '../components/common_header';
-import CommonNotice   from '../components/common_notice';
-import CommonTags     from '../components/common_tags';
-import CommonLatest   from '../components/common_latest';
-import CommonTimeline from '../components/common_timeline';
-import PaperItem      from '../components/paper_item';
+import CommonHeader            from '../components/common_header';
+import CommonNotice            from '../components/common_notice';
+import CommonTags              from '../components/common_tags';
+import CommonLatest            from '../components/common_latest';
+import CommonTimeline          from '../components/common_timeline';
+import DirectoryFilterItemList from './directory_filter_item_list';
 
 import $ from 'jquery';
 
 import smoothScroll from '../modules/plugin_smooth_scroll';
 
-class PagePaper extends React.Component {
+class PageDirectoryFilter extends React.Component {
     constructor() {
         super();
 
@@ -65,7 +65,7 @@ class PagePaper extends React.Component {
                 {/* 主体部分 */}
                 <div 
                     id = "bodyContainer" 
-                    className = "body-container init"
+                    className = "body-container init hidden"
                 >
                     <div className = "body-content row">
                         <div className = "col-xs-3">
@@ -83,8 +83,8 @@ class PagePaper extends React.Component {
                         </div>
 
                         <div className = "col-xs-9">
-                            {/* 文章内容 */}
-                            <PaperItem />
+                            {/* 目录列表 */}
+                            <DirectoryFilterItemList />
                         </div>
                     </div>
                 </div>
@@ -93,4 +93,4 @@ class PagePaper extends React.Component {
     };
 };
 
-export default PagePaper;
+export default PageDirectoryFilter;

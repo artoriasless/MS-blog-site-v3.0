@@ -10,7 +10,7 @@ var mapStateToProps = (state) => {
     
     return ({
         timeline: timeline
-    })
+    });
 };
 
 var mapDispatchToProps = (dispatch) => {

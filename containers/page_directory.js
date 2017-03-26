@@ -1,5 +1,5 @@
 import React from 'react';
-import CommonHeader      from './common_header';
+import CommonHeader      from '../components/common_header';
 import CommonNotice      from '../components/common_notice';
 import CommonTags        from '../components/common_tags';
 import CommonLatest      from '../components/common_latest';

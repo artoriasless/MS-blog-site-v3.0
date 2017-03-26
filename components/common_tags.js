@@ -10,7 +10,7 @@ var mapStateToProps = (state) => {
     
     return ({
         tags: tags
-    })
+    });
 };
 
 var mapDispatchToProps = (dispatch) => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import common_getDomain from '../modules/common_get_domain';
 
-class DirectoryItemList extends React.Component {
+class DirectoryFilterItemList extends React.Component {
     render() {
         return (
             <div 
@@ -14,10 +14,10 @@ class DirectoryItemList extends React.Component {
                 </div>
                 <hr/>
                 <div className = "paper-content">目录列表</div>
-                <div>全部的</div>
+                <div>筛选的</div>
             </div>
         );
     };
 };
 
-export default DirectoryItemList;
+export default DirectoryFilterItemList;

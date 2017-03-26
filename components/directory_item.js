@@ -20,8 +20,7 @@ class DirectoryItem extends React.Component {
                     <h2>
                         <Link 
                             to = { {
-                                pathname: "/paperId=" + itemId,
-                                state   : passState
+                                pathname: "/paper"
                             } }
                             title = { param_title }
                             data-hover = { param_title }

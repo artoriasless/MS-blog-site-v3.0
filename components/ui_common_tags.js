@@ -9,7 +9,7 @@ class TagItem extends React.Component {
             <dd>
                 <Link 
                     to = { {
-                        pathname: "/directory"
+                        pathname: "/directoryFilter"
                     } }
                 >
                     <span className = "tag-name">{ tagName }</span>

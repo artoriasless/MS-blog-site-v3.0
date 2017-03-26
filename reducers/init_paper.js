@@ -1,12 +1,24 @@
 var initPaperFunc = (originState = {}, action) => {
-    var newState = {
-        item: 'new paper item'
-    };
+    var newState = Object.assign({}, originState),
+        paper    = {
+            paperTitle    : 'test paper title',
+            paperDate     : '2011-11-11',
+            paperTag      : 'test',
+            paperContent  : '<strong>【Preface】</strong><p>test paper content.........</p><div class="code-container"><code><pre>$thisTest.animate({marginLeft:\'0em\'});</pre><pre>$thisTest.animate({marginLeft:\'-6em\'});</pre></code></div>',
+            currentPaperId: action.payload.jsonData.currentPaperId,
+            prevPaper   : {
+                id   : '0',
+                title: 'test prev paper title'
+            },
+            nextPaper: {
+                id   : '2',
+                title: 'test next paper title'
+            }
+        };
 
-    console.info('init paper func');
-    console.info('action');
-    console.info(action);
-    console.info('----------');
+    delete newState.paper;
+    newState.paper = paper;
+
     return newState;
 };
 

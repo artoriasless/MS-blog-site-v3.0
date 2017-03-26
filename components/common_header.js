@@ -1,7 +1,7 @@
 import React from 'react';
-import CommonHeaderLeft   from '../components/common_header_left';
-import CommonHeaderCenter from '../components/common_header_center';
-import CommonHeaderRight  from '../components/common_header_right';
+import CommonHeaderLeft   from './common_header_left';
+import CommonHeaderCenter from './common_header_center';
+import CommonHeaderRight  from './common_header_right';
 
 class CommonHeader extends React.Component {
     render() {

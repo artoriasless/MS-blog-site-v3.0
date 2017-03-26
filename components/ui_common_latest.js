@@ -13,7 +13,7 @@ class LatestItem extends React.Component {
             <dd>
                 <Link 
                     to = { {
-                        pathname: "/paperId=" + itemId,
+                        pathname: "/paper",
                     } }
                     title = { param_title }
                     data-no = { param_dataNo }

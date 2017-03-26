@@ -12,7 +12,7 @@ class TimelineItem extends React.Component {
             <dd>
                 <Link
                     to = { {
-                        pathname: "/directory"
+                        pathname: "/directoryFilter"
                     } }
                 >
                     <span className = "time-val">{ timeline }</span>
