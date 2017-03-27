@@ -63,3 +63,5 @@ a blog site by Stan_Lee using node.js as Server,react as FE,mysql as Database
 2017-02-15　获取显示数据存在bug，update组件陷入死循环了，后续找时间再来看看怎么解决
 
 2017-03-25　重新写了一下，用react-redux-router，数据用一个统一的state进行控制，暂时还未将异步获取数据的ajax加上，用的静态写死的，后续有时间了继续完善，运气好的话（业余时间充足），应该能在下月上线吧。
+
+2017-03-27　做了一点小改动，后台路由规则稍微调整，前端路由规则稍微调整，目录筛选页面（原先是和总目录列表在同一个page中）另开一个page，现阶段还差ajax获取数据待完善。
