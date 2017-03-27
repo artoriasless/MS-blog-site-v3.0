@@ -44,13 +44,6 @@ class UI_paperItem extends React.Component {
         $('#loading').addClass('hidden');
     };
 
-    componentDidMount() {
-        const { initPaper } = this.props;
-
-        initPaper('1');
-        $('#loading').addClass('hidden');
-    };
-
     componentDidUpdate() {
         this.addCodeCount();
         /* 隐藏整个页面内容 */

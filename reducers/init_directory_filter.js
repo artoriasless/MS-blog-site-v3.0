@@ -1,10 +1,10 @@
-var initDirectoryFilterFunc = (originState = [], action) => {
-    var newState = ['new directory filter'];
+var initDirectoryFilterFunc = (originState, action) => {
+    var newState        = Object.assign({}, originState),
+        directoryFilter = action.payload.data;
 
-    console.info('init directory filter func');
-    console.info('action');
-    console.info(action);
-    console.info('----------');
+    delete newState.directoryFilter;
+    newState.directoryFilter = directoryFilter;
+
     return newState;
 };
 

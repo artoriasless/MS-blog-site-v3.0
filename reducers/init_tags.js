@@ -1,15 +1,9 @@
 var initTagsFunc = (originState, action) => {
     var newState = Object.assign({}, originState),
-        tags     = [
-            {   
-                tagName    : 'test tag name',
-                papersCount: '1'
-            }
-        ];
-
+        tags     = action.payload.data;
+        
     delete newState.tags;
     newState.tags = tags;
-
     return newState;
 };
 

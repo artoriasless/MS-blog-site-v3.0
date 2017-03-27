@@ -5,6 +5,10 @@ import UI_commonTimeline from './ui_common_timeline';
 import { initTimelineAction }        from '../actions';
 import { initDirectoryFilterAction } from '../actions';
 
+import $ from 'jquery';
+
+import common_getDomain from '../modules/common_get_domain';
+
 var mapStateToProps = (state) => {
     var timeline = state.appReducer.timeline ? state.appReducer.timeline : [];
     
@@ -14,9 +18,35 @@ var mapStateToProps = (state) => {
 };
 
 var mapDispatchToProps = (dispatch) => {
+    var ajaxInitTimeline = () => (dispatch) => {
+        const domain     = common_getDomain();
+        const requestUrl = domain + '/getTimeline.node';
+
+        return (
+            $.post(requestUrl, function(data) {
+                dispatch(initTimelineAction(data));
+            })
+        );
+    };
+
+    var ajaxInitDirectoryFilter = (keyword, keywordType) => (dispatch) => {
+        const domain     = common_getDomain();
+        const requestUrl = domain + '/getDirectoryFilter.node';
+        const jsonData   = {
+                keyword    : keyword,
+                keywordType: keywordType
+            };
+
+        return (
+            $.post(requestUrl, jsonData, function(data) {
+                dispatch(initDirectoryFilterAction(data));
+            })
+        );
+    };
+
     return ({
-        initTimeline       : () => dispatch(initTimelineAction()),
-        initDirectoryFilter: (keyword, keywordType) => dispatch(initDirectoryFilterAction(keyword, keywordType))
+        initTimeline       : () => dispatch(ajaxInitTimeline()),
+        initDirectoryFilter: (keyword, keywordType) => dispatch(ajaxInitDirectoryFilter(keyword, keywordType))
     });
 };
 

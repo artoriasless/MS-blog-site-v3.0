@@ -1,11 +1,10 @@
 const INIT_LATEST = 'INIT_LATEST';
 
-var initLatestAction = () => {
+var initLatestAction = (data) => {
     return ({
         type   : INIT_LATEST,
         payload: {
-            postName: '/getLatest.node',
-            jsonData: {}
+            data: data
         }
     });
 };

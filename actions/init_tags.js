@@ -1,11 +1,10 @@
 const INIT_TAGS = 'INIT_TAGS';
 
-var initTagsAction = () => {
+var initTagsAction = (data) => {
     return ({
         type   : INIT_TAGS,
         payload: {
-            postName: '/getTags.node',
-            jsonData: {}
+            data: data
         }
     });
 };

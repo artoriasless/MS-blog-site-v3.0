@@ -1,11 +1,10 @@
 const INIT_DIRECTORY = 'INIT_DIRECTORY';
 
-var initDirectoryAction = () => {
+var initDirectoryAction = (data) => {
     return ({
         type   : INIT_DIRECTORY,
         payload: {
-            postName: '/getDirectory.node',
-            jsonData: {}
+            data: data
         }
     });
 };

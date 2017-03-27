@@ -1,30 +1,30 @@
 import { connect } from 'react-redux';
 
-import UI_commonLatest from './ui_common_latest';
+import UI_directoryItem from './ui_directory_item';
 
-import { initLatestAction } from '../actions';
-import { initPaperAction }  from '../actions';
+import { initDirectoryAction } from '../actions';
+import { initPaperAction }     from '../actions';
 
 import $ from 'jquery';
 
 import common_getDomain from '../modules/common_get_domain';
 
 var mapStateToProps = (state) => {
-    var latest = state.appReducer.latest ? state.appReducer.latest : [];
+    var directory  = state.appReducer.directory ? state.appReducer.directory : [];
     
     return ({
-        latest: latest
+        directory: directory
     });
 };
 
 var mapDispatchToProps = (dispatch) => {
-    var ajaxInitLatest = () => (dispatch) => {
+    var ajaxInitDirectory = () => (dispatch) => {
         const domain     = common_getDomain();
-        const requestUrl = domain + '/getLatest.node';
+        const requestUrl = domain + '/getDirectory.node';
 
         return (
             $.post(requestUrl, function(data) {
-                dispatch(initLatestAction(data));
+                dispatch(initDirectoryAction(data));
             })
         );
     };
@@ -44,14 +44,14 @@ var mapDispatchToProps = (dispatch) => {
     };
 
     return ({
-        initLatest: () => dispatch(ajaxInitLatest()),
-        initPaper : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId))
+        initDirectory: () => dispatch(ajaxInitDirectory()),
+        initPaper    : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId))
     });
 };
 
-const CommonLatest = connect(
+const DirectoryItemList = connect(
         mapStateToProps, 
         mapDispatchToProps
-    )(UI_commonLatest);
+    )(UI_directoryItem);
 
-export default CommonLatest;
+export default DirectoryItemList;

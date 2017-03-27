@@ -1,13 +1,11 @@
 const INIT_PAPER = 'INIT_PAPER';
 
-var initPaperAction = (currentPaperId = '1') => {
+var initPaperAction = (currentPaperId, data) => {
     return ({
         type   : INIT_PAPER,
         payload: {
-            postName: '/getPaper.node',
-            jsonData: {
-                currentPaperId: currentPaperId
-            }
+            paperList     : data,
+            currentPaperId: currentPaperId
         }
     });
 };

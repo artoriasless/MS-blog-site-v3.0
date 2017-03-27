@@ -1,10 +1,10 @@
-var initDirectoryFunc = (originState = [], action) => {
-    var newState = ['new directory'];
+var initDirectoryFunc = (originState, action) => {
+    var newState  = Object.assign({}, originState),
+        directory = action.payload.data;
 
-    console.info('init directory func');
-    console.info('action');
-    console.info(action);
-    console.info('----------')
+    delete newState.directory;
+    newState.directory = directory;
+
     return newState;
 };
 

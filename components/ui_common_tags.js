@@ -2,15 +2,26 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class TagItem extends React.Component {
+    constructor() {
+        super();
+
+        this.directoryFilter = this.directoryFilter.bind(this);
+    };
+
+    directoryFilter(keyword, keywordType) {
+        const { initDirectoryFilter } = this.props;
+
+        initDirectoryFilter(keyword, keywordType);
+    };
+
     render() {
         const { tagName, papersCount } = this.props.tagItem;
 
         return (
             <dd>
                 <Link 
-                    to = { {
-                        pathname: "/directoryFilter"
-                    } }
+                    to = "/directoryFilter"
+                    onClick = { () => this.directoryFilter(tagName, 'tag') }
                 >
                     <span className = "tag-name">{ tagName }</span>
                     (<span className = "tag-count">{ papersCount }</span>)
@@ -28,7 +39,7 @@ class UI_commonTags extends React.Component {
     };
 
     render() {
-        const { tags } = this.props;
+        const { tags, initDirectoryFilter } = this.props;
 
         return (
             <div className = "content-block">
@@ -43,6 +54,7 @@ class UI_commonTags extends React.Component {
                                 <TagItem 
                                     key     = { 'tagKey_' + tagIndex }
                                     tagItem = { tagItem } 
+                                    initDirectoryFilter = { initDirectoryFilter }
                                 />
                             )
                         })

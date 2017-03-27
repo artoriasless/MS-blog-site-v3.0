@@ -1,11 +1,10 @@
 const INIT_TIMELINE = 'INIT_TIMELINE';
 
-var initTimelineAction = () => {
+var initTimelineAction = (data) => {
     return ({
         type   : INIT_TIMELINE,
         payload: {
-            postName: '/getTimeline.node',
-            jsonData: {}
+            data: data
         }
     });
 };

@@ -5,15 +5,26 @@ import FontAwesome from 'react-fontawesome';
 import PluginRoundAbout from '../modules/plugin_round_about';
 
 class TimelineItem extends React.Component {
+    constructor() {
+        super();
+
+        this.directoryFilter = this.directoryFilter.bind(this);
+    };
+
+    directoryFilter(keyword, keywordType) {
+        const { initDirectoryFilter } = this.props;
+
+        initDirectoryFilter(keyword, keywordType);
+    };
+
     render() {
         const { timeline, papersCount } = this.props.timelineItem;
 
         return (
             <dd>
-                <Link
-                    to = { {
-                        pathname: "/directoryFilter"
-                    } }
+                <Link 
+                    to = "/directoryFilter"
+                    onClick = { () => this.directoryFilter(timeline, 'timeline') }
                 >
                     <span className = "time-val">{ timeline }</span>
                     (<span className = "count">{ papersCount }</span>)
@@ -31,7 +42,7 @@ class UI_commonTimeline extends React.Component {
     };
 
     render() {
-        const { timeline } = this.props;
+        const { timeline, initDirectoryFilter } = this.props;
 
         return (
             <div className = "content-block">
@@ -56,6 +67,7 @@ class UI_commonTimeline extends React.Component {
                                 <TimelineItem
                                     key          = { 'timelineKey_' + timelineIndex }
                                     timelineItem = { timelineItem }
+                                    initDirectoryFilter = { initDirectoryFilter }
                                 />
                             );
                         })

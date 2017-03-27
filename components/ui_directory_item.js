@@ -2,6 +2,18 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class DirectoryItem extends React.Component {
+    constructor() {
+        super();
+
+        this.changePaper = this.changePaper.bind(this);
+    };
+
+    changePaper(paperId) {
+        const { initPaper } = this.props;
+
+        initPaper(paperId);
+    };
+
     render() {
         const directoryItem = this.props.directoryItem;
         const itemId        = directoryItem.id;
@@ -10,20 +22,16 @@ class DirectoryItem extends React.Component {
         const text_tag      = !directoryItem.subtag ? directoryItem.tag : directoryItem.tag + '，' + directoryItem.subtag;
         const text_date     = directoryItem.date;
         const text_abstract = directoryItem.abstract;
-        const passState     = {
-                currentPaperId: itemId
-            }
         
         return (
             <div className = "category-item">
                 <div className = "item-title">
                     <h2>
                         <Link 
-                            to = { {
-                                pathname: "/paper"
-                            } }
+                            to = "/paper"
                             title = { param_title }
                             data-hover = { param_title }
+                            onClick = { () => this.changePaper(itemId) }
                         >
                             { text_title }
                         </Link>
@@ -49,4 +57,46 @@ class DirectoryItem extends React.Component {
     };
 };
 
-export default DirectoryItem;
+class UI_directoryItem extends React.Component {
+    componentDidMount() {
+        const { initDirectory } = this.props;
+
+        if (initDirectory) {
+            /* 筛选的目录和总目录复用的本组件，需判断一下 */
+            initDirectory();
+        }
+    };
+
+    render() {
+        const { directory, initPaper } = this.props;
+
+        return (
+            <div 
+                id = "paperContent" 
+                className = "content-block" 
+                // data-keyword = { param_dataKeyword }
+                // data-keywordType = { param_dataKeywordType }
+            >
+                <div className = "paper-title">
+                    <h1>Directory</h1>
+                </div>
+                <hr/>
+                <div className = "paper-content">
+                {
+                    directory.map((directoryItem, directoryIndex) => {
+                        return (
+                            <DirectoryItem 
+                                key           = { 'directoryKey_' + directoryIndex }
+                                directoryItem = { directoryItem } 
+                                initPaper     = { initPaper }
+                            />
+                        )
+                    })
+                }
+                </div>
+            </div>
+        );
+    };
+};
+
+export default UI_directoryItem;

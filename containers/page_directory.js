@@ -4,7 +4,7 @@ import CommonNotice      from '../components/common_notice';
 import CommonTags        from '../components/common_tags';
 import CommonLatest      from '../components/common_latest';
 import CommonTimeline    from '../components/common_timeline';
-import DirectoryItemList from './directory_item_list';
+import DirectoryItemList from '../components/directory_item_list';
 
 import $ from 'jquery';
 
