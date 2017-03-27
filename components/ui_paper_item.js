@@ -116,7 +116,7 @@ class UI_paperItem extends React.Component {
                             id = "prePaper"
                             title = { paper.prevPaper.title }
                             data-paperId = { paper.prevPaper.id }
-                            onClick = { () => this.changePaper(paper.nextPaper.id) }
+                            onClick = { () => this.changePaper(paper.prevPaper.id) }
                         >
                             { paper.prevPaper.title }
                         </a>

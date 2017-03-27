@@ -12,7 +12,7 @@ class CommonNotice extends React.Component {
         this.toggleNotice = this.toggleNotice.bind(this);
     };
 
-    toggleNotice(e) {
+    toggleNotice() {
         var $toggleBtn = $('#noticeToggleBtn'),
             $icon      = $toggleBtn.find('.fa');
 
@@ -45,7 +45,7 @@ class CommonNotice extends React.Component {
                         Notice
                         <a 
                             id = "noticeToggleBtn"
-                            onClick = { (e) => this.toggleNotice(e) }
+                            onClick = { () => this.toggleNotice() }
                         >
                             <FontAwesome
                                 name = "caret-down"
