@@ -1,9 +1,10 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers }              from 'redux';
-import { Provider }                                  from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import { syncHistoryWithStore, routerReducer }       from 'react-router-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk                                             from 'redux-thunk';
+import { Provider }                                      from 'react-redux';
+import { Router, Route, browserHistory, IndexRoute }     from 'react-router';
+import { syncHistoryWithStore, routerReducer }           from 'react-router-redux';
 /* App对应总容器 */
 /* 每一项对应一个页面 */
 import App                 from './containers/app';
@@ -25,7 +26,8 @@ const store = createStore(
     combineReducers({
         appReducer,
         routing: routerReducer
-    })
+    }),
+    applyMiddleware(thunk)
 );
 
 const history = syncHistoryWithStore(browserHistory, store);
