@@ -12,8 +12,8 @@ var sqlQuery = function(request, callbackFunc) {
         publish_data = request.body.publish_data,
         timeline     = request.body.timeline,
         abstract     = request.body.abstract,
-        content      = request.body.connect,
-        values       = title + ',' + tag + ',' + subtag + ',' + publish_data + ',' + timeline + ',' + abstract + ',' + content;
+        content      = request.body.content,
+        values       = '\'' + title + '\',\'' + tag + '\',\'' + subtag + '\',\'' + publish_data + '\',\'' + timeline + '\',\'' + abstract + '\',\'' + content + '\'';
 
     addSqlStr = 'INSERT INTO papers_table ' +
                 '(title, tag, subtag, publish_date, timeline, abstract, content) ' +
@@ -26,6 +26,7 @@ var sqlQuery = function(request, callbackFunc) {
     });
     
     client.query(addSqlStr, function(err, results) {
+        console.info(err);
         if (err) { 
             callbackFunc({
                 status: 'fail'

@@ -50,7 +50,7 @@ class PageNewPaper extends React.Component {
         
         var newContentList;
 
-        if (selectedParagraphType.name === 'title' || selectedParagraphType.name === 'normal') {
+        if (selectedParagraphType.name === 'title' || selectedParagraphType.name === 'normal' || selectedParagraphType.name === 'imgContainer') {
             newContentList = oldContentList.concat(content);
         }
         else {

@@ -39,6 +39,26 @@ class ParagraphType extends React.Component {
                     end           : '</p>',
                     containerBegin: '<div class="refer-content">',
                     containerEnd  : '</div>'
+                },
+                'imgContainer_lg': {
+                    name : 'imgContainer',
+                    begin: '<div class="img-container size-lg">',
+                    end  : '</div>'
+                },
+                'imgContainer_md': {
+                    name : 'imgContainer',
+                    begin: '<div class="img-container size-md">',
+                    end  : '</div>'
+                },
+                'imgContainer_sm': {
+                    name : 'imgContainer',
+                    begin: '<div class="img-container size-sm">',
+                    end  : '</div>'
+                },
+                'imgContainer_xs': {
+                    name : 'imgContainer',
+                    begin: '<div class="img-container size-xs">',
+                    end  : '</div>'
                 }
             };
         const selectedType = typeList[e.target.value];
@@ -56,70 +76,128 @@ class ParagraphType extends React.Component {
                 <div className = "page-header">
                     <h1>段落类别</h1>
                 </div>
-                <div className = "form-group">
-                    <div className = "radio">
-                        <label>
-                            <input 
-                                type = "radio" 
-                                name = "paragraphType"
-                                value = "title"
-                                onChange = { (e) => this.changeType(e) }
-                            />
-                            <h2>副标题</h2>
-                        </label>
+                <div className = "row">
+                    <div className = "col-xs-6">
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType"
+                                        value = "title"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>副标题</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType" 
+                                        value = "normal"
+                                        ref = "defaultParagraphType"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>普通段落</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType" 
+                                        value = "subChapter"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>段落标题</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType"
+                                        value = "code"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>代码</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType"
+                                        value = "refer"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>引用</h2>
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className = "form-group">
-                    <div className = "radio">
-                        <label>
-                            <input 
-                                type = "radio" 
-                                name = "paragraphType" 
-                                value = "normal"
-                                ref = "defaultParagraphType"
-                                onChange = { (e) => this.changeType(e) }
-                            />
-                            <h2>普通段落</h2>
-                        </label>
-                    </div>
-                </div>
-                <div className = "form-group">
-                    <div className = "radio">
-                        <label>
-                            <input 
-                                type = "radio" 
-                                name = "paragraphType" 
-                                value = "subChapter"
-                                onChange = { (e) => this.changeType(e) }
-                            />
-                            <h2>段落标题</h2>
-                        </label>
-                    </div>
-                </div>
-                <div className = "form-group">
-                    <div className = "radio">
-                        <label>
-                            <input 
-                                type = "radio" 
-                                name = "paragraphType"
-                                value = "code"
-                                onChange = { (e) => this.changeType(e) }
-                            />
-                            <h2>代码</h2>
-                        </label>
-                    </div>
-                </div>
-                <div className = "form-group">
-                    <div className = "radio">
-                        <label>
-                            <input 
-                                type = "radio" 
-                                name = "paragraphType"
-                                value = "refer"
-                                onChange = { (e) => this.changeType(e) }
-                            />
-                            <h2>引用</h2>
-                        </label>
+                    <div className = "col-xs-6">
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType" 
+                                        value = "imgContainer_lg"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>图片（大）</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType" 
+                                        value = "imgContainer_md"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>图片（中）</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType" 
+                                        value = "imgContainer_sm"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>图片（小）</h2>
+                                </label>
+                            </div>
+                        </div>
+                        <div className = "form-group">
+                            <div className = "radio">
+                                <label>
+                                    <input 
+                                        type = "radio" 
+                                        name = "paragraphType" 
+                                        value = "imgContainer_xs"
+                                        onChange = { (e) => this.changeType(e) }
+                                    />
+                                    <h2>图片（超小）</h2>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

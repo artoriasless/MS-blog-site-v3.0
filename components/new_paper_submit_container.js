@@ -52,13 +52,16 @@ class SubmitContainer extends React.Component {
         const domain     = common_getDomain();
         const requestUrl = domain + '/addPaper.node';
         $.post(requestUrl, jsonData, function(data) {
-            console.info(data);
+            alert(data.status);
+            if (data.status === 'success') {
+                location.reload();
+            }
         });
     };
 
     render() {
         return (
-            <div className = "new-paper-submit-container">
+            <div className = "new-paper-submit-container row col-xs-12">
                 <div className = "col-xs-6 title-input-container">
                     <div className = "form-group">
                         <input
