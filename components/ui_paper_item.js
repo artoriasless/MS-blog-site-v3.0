@@ -1,7 +1,73 @@
 import React from 'react';
+import { Link } from 'react-router';
 import FontAwesome from 'react-fontawesome';
 
+import common_getParameter from '../modules/common_get_parameter';
+
 import $ from 'jquery';
+
+class PrevPaper extends React.Component {
+    render() {
+        const { paper, changePaper } = this.props;
+
+        if (paper.currentPaperId == paper.prevPaper.id) {
+            return (
+                <span 
+                    id = "prevPaper"
+                    title = { paper.prevPaper.title }
+                    data-paperId = { paper.prevPaper.id }
+                >
+                    { paper.prevPaper.title }
+                </span>
+            );
+        }
+        else {
+            return (
+                <Link 
+                    id = "prevPaper"
+                    to = { '/paper?paperId=' + paper.prevPaper.id }
+                    title = { paper.prevPaper.title }
+                    data-paperId = { paper.prevPaper.id }
+                    onClick = { () => changePaper(paper.prevPaper.id) }
+                >
+                    { paper.prevPaper.title }
+                </Link>
+            );
+        }
+    };
+};
+
+class NextPaper extends React.Component {
+    
+    render() {
+        const { paper, changePaper } = this.props;
+
+        if (paper.currentPaperId == paper.nextPaper.id) {
+            return (
+                <span 
+                    id = "nextPaper"
+                    title = { paper.nextPaper.title }
+                    data-paperId = { paper.nextPaper.id }
+                >
+                    { paper.nextPaper.title }
+                </span>
+            );
+        }
+        else {
+            return (
+                <Link 
+                    id = "nextPaper"
+                    to = { '/paper?paperId=' + paper.nextPaper.id }
+                    title = { paper.nextPaper.title }
+                    data-paperId = { paper.nextPaper.id }
+                    onClick = { () => changePaper(paper.nextPaper.id) }
+                >
+                    { paper.nextPaper.title }
+                </Link>
+            );
+        }
+    };
+};
 
 class UI_paperItem extends React.Component {
     constructor() {
@@ -42,6 +108,14 @@ class UI_paperItem extends React.Component {
 
         initPaper(paperId);
         $('#loading').addClass('hidden');
+    };
+
+    componentDidMount() {
+        const { paper, initPaper } = this.props;
+        
+        if (!paper.currentPaperId) {
+            initPaper(common_getParameter('paperId'));
+        }
     };
 
     componentDidUpdate() {
@@ -105,24 +179,16 @@ class UI_paperItem extends React.Component {
                             tag       = "i"
                             className = "pull-left"
                         />
-                        <a 
-                            id = "prePaper"
-                            title = { paper.prevPaper.title }
-                            data-paperId = { paper.prevPaper.id }
-                            onClick = { () => this.changePaper(paper.prevPaper.id) }
-                        >
-                            { paper.prevPaper.title }
-                        </a>
+                        <PrevPaper 
+                            paper = { paper }
+                            changePaper = { this.changePaper }
+                        />
                     </div>
                     <div className = "col-xs-6 next-title">
-                        <a 
-                            id = "nextPaper" 
-                            title = { paper.nextPaper.title }
-                            data-paperId = { paper.nextPaper.id }
-                            onClick = { () => this.changePaper(paper.nextPaper.id) }
-                        >
-                            { paper.nextPaper.title }
-                        </a>
+                        <NextPaper
+                            paper = { paper }
+                            changePaper = { this.changePaper }
+                        />
                         <FontAwesome
                             name      = "arrow-circle-o-right"
                             tag       = "i"

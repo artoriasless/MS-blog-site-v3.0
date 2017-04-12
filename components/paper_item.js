@@ -34,10 +34,11 @@ var mapStateToProps = (state) => {
         if (paperCount == 2) {
                 if (paperList[0].id == currentPaperId) {
                     paper = {
-                        paperTitle  : paperList[0].title,
-                        paperDate   : paperList[0].date,
-                        paperTag    : (paperList[0].subtag ? (paperList[0].tag + '，' + paperList[0].subtag) : paperList[0].tag),
-                        paperContent: paperList[0].content,
+                        currentPaperId: currentPaperId,
+                        paperTitle    : paperList[0].title,
+                        paperDate     : paperList[0].date,
+                        paperTag      : (paperList[0].subtag ? (paperList[0].tag + '，' + paperList[0].subtag) : paperList[0].tag),
+                        paperContent  : paperList[0].content,
                         prevPaper: {
                             id   : currentPaperId,
                             title: '已经是第一篇了！没有上一篇了！'
@@ -50,10 +51,11 @@ var mapStateToProps = (state) => {
                 }
                 else {
                     paper = {
-                        paperTitle  : paperList[1].title,
-                        paperDate   : paperList[1].date,
-                        paperTag    : (paperList[1].subtag ? (paperList[1].tag + '，' + paperList[1].subtag) : paperList[1].tag),
-                        paperContent: paperList[1].content,
+                        currentPaperId: currentPaperId,
+                        paperTitle    : paperList[1].title,
+                        paperDate     : paperList[1].date,
+                        paperTag      : (paperList[1].subtag ? (paperList[1].tag + '，' + paperList[1].subtag) : paperList[1].tag),
+                        paperContent  : paperList[1].content,
                         prevPaper: {
                             id   : paperList[0].id,
                             title: paperList[0].title
@@ -67,10 +69,11 @@ var mapStateToProps = (state) => {
             }
             else {
                 paper = {
-                    paperTitle  : paperList[1].title,
-                    paperDate   : paperList[1].date,
-                    paperTag    : (paperList[1].subtag ? (paperList[1].tag + '，' + paperList[1].subtag) : paperList[1].tag),
-                    paperContent: paperList[1].content,
+                    currentPaperId: currentPaperId,
+                    paperTitle    : paperList[1].title,
+                    paperDate     : paperList[1].date,
+                    paperTag      : (paperList[1].subtag ? (paperList[1].tag + '，' + paperList[1].subtag) : paperList[1].tag),
+                    paperContent  : paperList[1].content,
                     prevPaper: {
                         id   : paperList[0].id,
                         title: paperList[0].title

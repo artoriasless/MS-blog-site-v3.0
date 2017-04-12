@@ -28,7 +28,7 @@ class DirectoryItem extends React.Component {
                 <div className = "item-title">
                     <h2>
                         <Link 
-                            to = "/paper"
+                            to = { '/paper?paperId=' + itemId }
                             title = { param_title }
                             data-hover = { param_title }
                             onClick = { () => this.changePaper(itemId) }

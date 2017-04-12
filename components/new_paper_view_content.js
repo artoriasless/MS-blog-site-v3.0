@@ -157,7 +157,7 @@ class ViewHtml extends React.Component {
         $('.code-container').each(function() {
             var count = 1;
 
-            $(this).find('xmp').each(function() {
+            $(this).find('pre').each(function() {
                 if ($(this).hasClass('indent-4') && count > 100) { 
                     $(this).addClass('indent-lg'); 
                 }

@@ -27,6 +27,7 @@ class SubmitContainer extends React.Component {
         const paperPermitKey = $paperPermitKey.value;
 
         if (!Boolean(paperTitle) || !Boolean(paperTag) || !Boolean(paperAbstract) || !Boolean(paperPermitKey)) {
+            console.info('miss something');
             return false;
         }
         /* check permit key */
@@ -46,6 +47,7 @@ class SubmitContainer extends React.Component {
                 abstract    : paperAbstract,
                 content     : this.props.contentList.join('')
             };
+        
         /* submit one paper and save */
         const domain     = common_getDomain();
         const requestUrl = domain + '/addPaper.node';

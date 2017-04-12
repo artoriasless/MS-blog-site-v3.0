@@ -4,6 +4,7 @@ import { INIT_PAPER, initPaperAction }                      from './init_paper';
 import { INIT_TAGS, initTagsAction }                        from './init_tags';
 import { INIT_LATEST, initLatestAction }                    from './init_latest';
 import { INIT_TIMELINE, initTimelineAction }                from './init_timeline';
+import { ADD_PAPER, addPaperAction }                        from './add_paper';
 
 const actionTypes = {
     'INIT_DIRECTORY'       : INIT_DIRECTORY,
@@ -11,7 +12,8 @@ const actionTypes = {
     'INIT_PAPER'           : INIT_PAPER,
     'INIT_TAGS'            : INIT_TAGS,
     'INIT_LATEST'          : INIT_LATEST,
-    'INIT_TIMELINE'        : INIT_TIMELINE
+    'INIT_TIMELINE'        : INIT_TIMELINE,
+    'ADD_PAPER'            : ADD_PAPER
 };
 
 export {
@@ -22,5 +24,6 @@ export {
     initPaperAction,
     initTagsAction,
     initLatestAction,
-    initTimelineAction
+    initTimelineAction,
+    addPaperAction
 };

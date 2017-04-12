@@ -24,7 +24,7 @@ class LatestItem extends React.Component {
         return (
             <dd>
                 <Link 
-                    to = "/paper"
+                    to = { '/paper?paperId=' + itemId }
                     title = { param_title }
                     data-no = { param_dataNo }
                     onClick = { () => this.changePaper(itemId) }
