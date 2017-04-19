@@ -5,8 +5,11 @@ var controllerList = {
     '/getDirectory.node'      : 'get_directory',
     '/getDirectoryFilter.node': 'get_directory_filter',
     '/getPaper.node'          : 'get_paper',
+    '/getComments.node'       : 'get_comments',
 
-    '/addPaper.node': 'add_paper'
+    '/addPaper.node'     : 'add_paper',
+    '/addComment.node'   : 'add_comment',
+    '/addSubcomment.node': 'add_subcomment'
 };
 
 var controller = function(request, response) {

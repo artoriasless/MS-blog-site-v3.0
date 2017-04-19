@@ -48,6 +48,7 @@ i.fa-weixin   { color: #95e75c; }
 i.fa-weibo    { color: #e6162d; }
 i.fa-qq       { color: #24202b; }
 .hidden { display: none; }
+.invisible { visibility: hidden; }
 .network-err:after {
 	content: "获取数据失败，请检查网络后刷新页面";
 	display: block;
@@ -288,6 +289,22 @@ i.fa-qq       { color: #24202b; }
   clear: both;
   visibility: hidden;
   content: '.';
+}
+/* alert container */
+.alert-container {
+	position: fixed;
+	min-width: 250px;
+	top: 10px;
+	right: 0;
+	z-index: 9999;
+}
+.alert-container .alert {
+	padding: 5px 15px;
+	margin: 0;
+}
+.alert-container .alert a, 
+.alert-container .alert strong {
+	margin: 0 10px;
 }
 
 .clearfix {display: inline-block;}

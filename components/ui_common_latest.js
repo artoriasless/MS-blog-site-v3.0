@@ -9,9 +9,10 @@ class LatestItem extends React.Component {
     };
 
     changePaper(paperId) {
-        const { initPaper } = this.props;
+        const { initPaper, initComments } = this.props;
 
         initPaper(paperId);
+        initComments(paperId);
     };
 
     render() {
@@ -44,7 +45,7 @@ class UI_commonLatest extends React.Component {
     };
 
     render() {
-        const { latest, initPaper } = this.props;
+        const { latest, initPaper, initComments } = this.props;
 
         return (
             <div className = "content-block">
@@ -57,10 +58,11 @@ class UI_commonLatest extends React.Component {
                         latest.map((latestItem, latestIndex) => {
                             return (
                                 <LatestItem
-                                    key         = { 'latestKey_' + latestIndex }
-                                    latestItem  = { latestItem }
-                                    latestIndex = { latestIndex }
-                                    initPaper   = { initPaper }
+                                    key          = { 'latestKey_' + latestIndex }
+                                    latestItem   = { latestItem }
+                                    latestIndex  = { latestIndex }
+                                    initPaper    = { initPaper }
+                                    initComments = { initComments }
                                 />
                             )
                         })

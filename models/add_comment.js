@@ -6,17 +6,15 @@ var mysql      = require('mysql'),
     client;
 
 var sqlQuery = function(request, callbackFunc) {
-    var title        = request.body.title,
-        tag          = request.body.tag,
-        subtag       = request.body.subtag,
-        publish_data = request.body.publish_data,
-        timeline     = request.body.timeline,
-        abstract     = request.body.abstract,
-        content      = request.body.content,
-        values       = '\'' + title + '\',\'' + tag + '\',\'' + subtag + '\',\'' + publish_data + '\',\'' + timeline + '\',\'' + abstract + '\',\'' + content + '\'';
+    var type        = request.body.type,
+        paperId     = request.body.paperId,
+        userName    = request.body.userName,
+        content     = request.body.content,
+        commentDate = request.body.commentDate,
+        values      = '\'' + type + '\',\'' + paperId + '\',\'' + userName + '\',\'' + content + '\',\'' + commentDate + '\'';
 
-    addSqlStr = 'INSERT INTO papers_table ' +
-                '(title, tag, subtag, publish_date, timeline, abstract, content) ' +
+    addSqlStr = 'INSERT INTO comment_table ' +
+                '(type, paper_id, user_name, content, comment_date) ' +
                 'VALUES (' + values + ')';
 
     client = mysql.createConnection(sqlOptions.connection);
@@ -26,7 +24,7 @@ var sqlQuery = function(request, callbackFunc) {
     });
     
     client.query(addSqlStr, function(err, results) {
-        if (err) { 
+        if (err) {
             callbackFunc({
                 status: 'fail'
             })

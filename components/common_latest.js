@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 
 import UI_commonLatest from './ui_common_latest';
 
-import { initLatestAction } from '../actions';
-import { initPaperAction }  from '../actions';
+import { initLatestAction }   from '../actions';
+import { initPaperAction }    from '../actions';
+import { initCommentsAction } from '../actions';
 
 import $ from 'jquery';
 
@@ -43,9 +44,24 @@ var mapDispatchToProps = (dispatch) => {
         );
     };
 
+    var ajaxInitComments = (currentPaperId) => (dispatch) => {
+        const domain     = common_getDomain();
+        const requestUrl = domain + '/getComments.node';
+        const jsonData = {
+                paperId: currentPaperId
+            };
+
+        return (
+            $.post(requestUrl, jsonData, function(data) {
+                dispatch(initCommentsAction(data));
+            })
+        );
+    };
+
     return ({
         initLatest: () => dispatch(ajaxInitLatest()),
-        initPaper : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId))
+        initPaper : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId)),
+        initComments: (currentPaperId) => dispatch(ajaxInitComments(currentPaperId))
     });
 };
 

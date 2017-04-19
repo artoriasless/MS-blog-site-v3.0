@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import FontAwesome from 'react-fontawesome';
 
+import CommentsContainer from './comments_container';
+
 import common_getParameter from '../modules/common_get_parameter';
 
 import $ from 'jquery';
@@ -104,17 +106,19 @@ class UI_paperItem extends React.Component {
     };
 
     changePaper(paperId) {
-        const { initPaper } = this.props;
+        const { initPaper, initComments } = this.props;
 
         initPaper(paperId);
+        initComments(paperId);
         $('#loading').addClass('hidden');
     };
 
     componentDidMount() {
-        const { paper, initPaper } = this.props;
+        const { paper, initPaper, initComments } = this.props;
         
         if (!paper.currentPaperId) {
             initPaper(common_getParameter('paperId'));
+            initComments(common_getParameter('paperId'));
         }
     };
 
@@ -131,7 +135,7 @@ class UI_paperItem extends React.Component {
     };
 
     render() {
-        const { paper }      = this.props;
+        const { paper, comments, initComments } = this.props;
         const currentPaperId = paper.currentPaperId;
         const paperContent   = paper.paperContent;
 
@@ -196,6 +200,11 @@ class UI_paperItem extends React.Component {
                         />
                     </div>
                 </div>
+                <hr className = "footer-hr"/>
+                <CommentsContainer 
+                    comments = { comments }
+                    initComments = { initComments }
+                />
             </div>
         );
     };

@@ -9,9 +9,10 @@ class DirectoryItem extends React.Component {
     };
 
     changePaper(paperId) {
-        const { initPaper } = this.props;
+        const { initPaper, initComments } = this.props;
 
         initPaper(paperId);
+        initComments(paperId);
     };
 
     render() {
@@ -68,7 +69,7 @@ class UI_directoryItem extends React.Component {
     };
 
     render() {
-        const { directory, initPaper } = this.props;
+        const { directory, initPaper, initComments } = this.props;
 
         return (
             <div 
@@ -89,6 +90,7 @@ class UI_directoryItem extends React.Component {
                                 key           = { 'directoryKey_' + directoryIndex }
                                 directoryItem = { directoryItem } 
                                 initPaper     = { initPaper }
+                                initComments  = { initComments }
                             />
                         )
                     })

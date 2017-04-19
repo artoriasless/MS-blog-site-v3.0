@@ -4,6 +4,7 @@ import UI_directoryItem from './ui_directory_item';
 
 import { initDirectoryAction } from '../actions';
 import { initPaperAction }     from '../actions';
+import { initCommentsAction }  from '../actions';
 
 import $ from 'jquery';
 
@@ -43,9 +44,24 @@ var mapDispatchToProps = (dispatch) => {
         );
     };
 
+    var ajaxInitComments = (currentPaperId) => (dispatch) => {
+        const domain     = common_getDomain();
+        const requestUrl = domain + '/getComments.node';
+        const jsonData = {
+                paperId: currentPaperId
+            };
+
+        return (
+            $.post(requestUrl, jsonData, function(data) {
+                dispatch(initCommentsAction(data));
+            })
+        );
+    };
+
     return ({
         initDirectory: () => dispatch(ajaxInitDirectory()),
-        initPaper    : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId))
+        initPaper    : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId)),
+        initComments : (currentPaperId) => dispatch(ajaxInitComments(currentPaperId))
     });
 };
 
