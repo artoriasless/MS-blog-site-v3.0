@@ -73,3 +73,5 @@ a blog site by Stan_Lee using node.js as Server,react as FE,mysql as Database
 2017-04-12　新增文章功能完善，修复bug，项目到此告一段落，等后续租服务器后放上去后把链接放上来。
 
 2017-04-19　增加了【添加留言】的功能，另外关于放到线上，这个站点好像可以完全当一个博客站点了，后续考虑一直续费租服务器，然后把一些东西放到上面。
+
+2017-04-20　www.monkingstand.cn 线上放上去了，总算是功能齐全了。告一段落吧
