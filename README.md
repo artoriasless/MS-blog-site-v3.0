@@ -75,3 +75,54 @@ a blog site by Stan_Lee using node.js as Server,react as FE,mysql as Database
 2017-04-19　增加了【添加留言】的功能，另外关于放到线上，这个站点好像可以完全当一个博客站点了，后续考虑一直续费租服务器，然后把一些东西放到上面。
 
 2017-04-20　www.monkingstand.cn 线上放上去了，总算是功能齐全了。告一段落吧
+
+2017-05-03　鉴于虽然所有东西都用redux写了一遍，但是鉴于有些地方没弄好，而且这个站点已经考虑作为永久站点使用，所以，考虑重构一下，希望能写的更加好一点吧（强迫症的尴尬），另外为了熟练使用git，暂时练一下git的命令行，采用分支这种东西（用了那么久的github，竟然分支这种东西基本没用上）
+
+2017-05-05　把之前碰到的bug修复了一下。详细信息如下：
+
+【报错（警告）信息】index.js:24935 Warning: [react-router] You cannot change <Router routes>; it will be ignored
+
+【参考】A good first step would be to look again into the error message. It’s not a random error; it actually tells what happened. It says that  Router component cannot accept new value of routes prop. This means you are recreating new routes every time you render the root component, rather than create them once for the lifetime of your app, which is the scenario React Router intends to support. The conclusion is you would need to look into where you render the Router component, and make sure you don't create routes on every render.
+
+【解决方法（参考）】
+
+Only thing you need to do, it's to throw <Route /> out of render() method.
+
+
+So, there are many ways to solve this issue.
+
+Most Official way is what @Stormy say.
+
+My solution like this:
+
+const routes = (
+
+  <Route path="/" component={App}>
+
+    <Route path="about" component={About} />
+
+    <Route path="inbox" component={Inbox} />
+
+  </Route>
+
+)
+
+// Don't let <Route> in render() method
+
+class Routers extends React.Component {
+
+  render() {
+
+     return ( 
+
+        <Router>
+
+          { routes }
+
+        </Router>
+
+      );
+
+    }
+    
+}
