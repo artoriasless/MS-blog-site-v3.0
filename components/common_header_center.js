@@ -1,11 +1,10 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
-import FontAwesome from 'react-fontawesome';
+import $        from 'jquery';
+import jQuery   from 'jquery';
+
 import aboutModal   from './common_about_modal';
 import contactModal from './common_contact_modal';
-
-import $ from 'jquery';
-import jQuery from 'jquery';
 
 class CommonHeaderCenter extends React.Component {
     constructor() {
@@ -877,10 +876,7 @@ class CommonHeaderCenter extends React.Component {
                             pathname: "/directory",
                         } }
                     >
-                        <FontAwesome
-                            name = "book"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-book"></i>
                         &nbsp;
                         <span data-hover = "目录">Blog</span>
                     </Link>
@@ -890,10 +886,7 @@ class CommonHeaderCenter extends React.Component {
                         id = "aboutLink"
                         onClick = { this.viewAboutModal }
                     >
-                        <FontAwesome
-                            name = "info-circle"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-info-circle"></i>
                         &nbsp;
                         <span data-hover = "关于">About</span>
                     </a>
@@ -903,10 +896,7 @@ class CommonHeaderCenter extends React.Component {
                         id = "contactLink"
                         onClick = { this.viewContactModal }
                     >
-                        <FontAwesome
-                            name = "envelope-o"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-envelope-o"></i>
                         &nbsp;
                         <span data-hover = "粉我！">Contact</span>
                     </a>

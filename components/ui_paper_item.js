@@ -1,12 +1,10 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
-import FontAwesome from 'react-fontawesome';
+import $        from 'jquery';
 
 import CommentsContainer from './comments_container';
 
 import common_getParameter from '../modules/common_get_parameter';
-
-import $ from 'jquery';
 
 class PrevPaper extends React.Component {
     render() {
@@ -153,18 +151,12 @@ class UI_paperItem extends React.Component {
                 <div className = "paper-subtitle">
                     <h3>
                         <span className = "subtitle-date">
-                            <FontAwesome
-                                name = "calendar"
-                                tag  = "i"
-                            />
+                            <i className = "fa fa-calendar"></i>
                             &nbsp;
                             <span className = "date-val">{ paper.paperDate }</span>
                         </span>
                         <span className = "subtitle-tags">
-                            <FontAwesome
-                                name = "tags"
-                                tag  = "i"
-                            />
+                            <i className = "fa fa-tags"></i>
                             &nbsp;
                             <span className = "tags-val">{ paper.paperTag }</span>
                         </span>
@@ -178,11 +170,7 @@ class UI_paperItem extends React.Component {
                 <hr className = "footer-hr"/>
                 <div className = "paper-footer row">
                     <div className = "col-xs-6 pre-title">
-                        <FontAwesome
-                            name      = "arrow-circle-o-left"
-                            tag       = "i"
-                            className = "pull-left"
-                        />
+                        <i className = "fa fa-arrow-circle-o-left pull-left"></i>
                         <PrevPaper 
                             paper = { paper }
                             changePaper = { this.changePaper }
@@ -193,11 +181,7 @@ class UI_paperItem extends React.Component {
                             paper = { paper }
                             changePaper = { this.changePaper }
                         />
-                        <FontAwesome
-                            name      = "arrow-circle-o-right"
-                            tag       = "i"
-                            className = "pull-right"
-                        />
+                        <i className = "fa fa-arrow-circle-o-right pull-right"></i>
                     </div>
                 </div>
                 <hr className = "footer-hr"/>

@@ -1,9 +1,10 @@
-import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import React  from 'react';
+import $      from 'jquery';
+import jQuery from 'jquery';
 
-var $      = require('jquery'),
-    jQuery = require('jquery');
-             require('jquery-ui');
+// var $      = require('jquery'),
+//     jQuery = require('jquery');
+//              require('jquery-ui');
 
 class CommonNotice extends React.Component {
     constructor() {
@@ -47,33 +48,21 @@ class CommonNotice extends React.Component {
                             id = "noticeToggleBtn"
                             onClick = { () => this.toggleNotice() }
                         >
-                            <FontAwesome
-                                name = "caret-down"
-                                tag  = "i"
-                            />
+                            <i className = "fa fa-caret-down"></i>
                         </a>
                     </dt>
                     <dd>
-                        <FontAwesome
-                            name = "circle"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-circle"></i>
                         &nbsp;
                         访问本 Blog ，为避免部分样式失效，请使用内核支持 CSS3 的浏览器， IE 浏览器请使用 IE9+ 版本。
                     </dd>
                     <dd>
-                        <FontAwesome
-                            name = "circle"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-circle"></i>
                         &nbsp;
                         本网站仅供交流阅读使用，转载请注明出处，谢谢。
                     </dd>
                     <dd>
-                        <FontAwesome
-                            name = "circle"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-circle"></i>
                         &nbsp;
                         关于博文中的代码，这一版本把xmp标签换成了pre标签，尖括号也做了转义，不同浏览器应该不会出现问题了吧
                     </dd>

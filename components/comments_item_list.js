@@ -1,7 +1,5 @@
-import React from 'react';
-import FontAwesome from 'react-fontawesome';
-
-import $ from 'jquery';
+import React  from 'react';
+import $      from 'jquery';
 import jQuery from 'jquery';
 
 import common_getDomain    from '../modules/common_get_domain';
@@ -410,10 +408,7 @@ class CommentsItem extends React.Component {
                     { commentsItem.userName }
                     <strong className = { replyTag }>
                         &nbsp;
-                        <FontAwesome
-                            name = "mail-forward"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-mail-forward"></i>
                         &nbsp;
                     </strong>
                     { replyedName }
@@ -428,10 +423,7 @@ class CommentsItem extends React.Component {
                         className = "subcomment-btn"
                         onClick   = { () => this.showSubcommentModal(subArgument) }
                     >
-                        <FontAwesome
-                            name = "comment-o"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-commenting-o"></i>
                         &nbsp;回复
                     </a>
                 </div>

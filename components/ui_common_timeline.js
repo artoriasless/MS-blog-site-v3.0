@@ -1,6 +1,5 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
-import FontAwesome from 'react-fontawesome';
 
 import PluginRoundAbout from '../modules/plugin_round_about';
 
@@ -51,10 +50,7 @@ class UI_commonTimeline extends React.Component {
                     className = "comm-dl"
                 >
                     <a className = "content-icon">
-                        <FontAwesome
-                            name = "history"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-history"></i>
                         &nbsp;
                     </a>
                     <dt id = "timeLineTitle">

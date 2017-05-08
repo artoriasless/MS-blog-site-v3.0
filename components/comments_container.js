@@ -1,7 +1,5 @@
-import React from 'react';
-import FontAwesome from 'react-fontawesome';
-
-import $ from 'jquery';
+import React  from 'react';
+import $      from 'jquery';
 import jQuery from 'jquery';
 
 import CommentsItemList from './comments_item_list';
@@ -402,10 +400,7 @@ class CommentsContainer extends React.Component {
             <div className = "comment-container">
                 <div>
                     <strong className = "comment-title">
-                        <FontAwesome
-                            name = "commenting-o"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-commenting-o"></i>
                         &nbsp;Comments
                     </strong>
                     <a 
@@ -413,10 +408,7 @@ class CommentsContainer extends React.Component {
                         className = "pull-right"
                         onClick   = { () => this.showCommentModal(paperId) }
                     >
-                        <FontAwesome
-                            name = "comment-o"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-commenting-o"></i>
                         &nbsp;回复
                     </a>
                 </div>
