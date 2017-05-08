@@ -11,8 +11,7 @@ const routeList = {
 };
 
 var route = function(dirname, request, response) {
-    let path = request.path;
-
+    let path     = request.originalUrl;
     let paperReg = /(\/paper\?paperId=\d+)|(\/paper\.html\?paperId=\d+)/g;
 
     if (routeList[path] || paperReg.test(path)) {
