@@ -12,9 +12,7 @@ import subcommentModal from './common_subcomment_modal';
 class CommentsItem extends React.Component {
     constructor() {
         super();
-
         this.modalDefined = this.modalDefined.bind(this);
-
         this.showSubcommentModal = this.showSubcommentModal.bind(this);
     };
 

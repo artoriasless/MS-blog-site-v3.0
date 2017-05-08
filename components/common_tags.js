@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import $           from 'jquery';
 
 import UI_commonTags                 from './ui_common_tags';
-import { loadingAction }             from '../actions';
+import { loadingAllAction }          from '../actions';
+import { loadingContentAction }      from '../actions';
 import { initTagsAction }            from '../actions';
 import { initDirectoryFilterAction } from '../actions';
 
@@ -21,9 +22,6 @@ var mapDispatchToProps = (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getTags.node';
 
-        /* before get data,show loading animate */
-        dispatch(loadingAction());
-
         return (
             $.post(requestUrl, function(data) {
                 dispatch(initTagsAction(data));
@@ -38,9 +36,6 @@ var mapDispatchToProps = (dispatch) => {
                 keyword    : keyword,
                 keywordType: keywordType
             };
-        
-        /* before get data,show loading animate */
-        dispatch(loadingAction());
 
         return (
             $.post(requestUrl, jsonData, function(data) {
@@ -50,6 +45,8 @@ var mapDispatchToProps = (dispatch) => {
     };
 
     return ({
+        loadingAll         : () => dispatch(loadingAllAction()),
+        loadingContent     : () => dispatch(loadingContentAction()),
         initTags           : () => dispatch(ajaxInitTags()),
         initDirectoryFilter: (keyword, keywordType) => dispatch(ajaxInitDirectoryFilter(keyword, keywordType))
     });

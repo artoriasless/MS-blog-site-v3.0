@@ -1,4 +1,5 @@
-import { LOADING, loadingAction }                           from './loading';
+import { LOADING_ALL, loadingAllAction }                    from './loading_all';
+import { LOADING_CONTENT, loadingContentAction }            from './loading_content';
 import { INIT_DIRECTORY, initDirectoryAction }              from './init_directory';
 import { INIT_DIRECTORY_FILTER, initDirectoryFilterAction } from './init_directory_filter';
 import { INIT_PAPER, initPaperAction }                      from './init_paper';
@@ -9,7 +10,8 @@ import { INIT_COMMENTS, initCommentsAction }                from './init_comment
 import { ADD_PAPER, addPaperAction }                        from './add_paper';
 
 const actionTypes = {
-    'LOADING'              : LOADING,
+    'LOADING_All'          : LOADING_ALL,
+    'LOADING_CONTENT'      : LOADING_CONTENT,
     'INIT_DIRECTORY'       : INIT_DIRECTORY,
     'INIT_DIRECTORY_FILTER': INIT_DIRECTORY_FILTER,
     'INIT_PAPER'           : INIT_PAPER,
@@ -23,7 +25,8 @@ const actionTypes = {
 export {
     actionTypes,
 
-    loadingAction,
+    loadingAllAction,
+    loadingContentAction,
     initDirectoryAction,
     initDirectoryFilterAction,
     initPaperAction,

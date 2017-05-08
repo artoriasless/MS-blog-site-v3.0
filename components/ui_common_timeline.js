@@ -10,8 +10,9 @@ class TimelineItem extends React.Component {
     };
 
     directoryFilter(keyword, keywordType) {
-        const { initDirectoryFilter } = this.props;
+        const { loadingContent, initDirectoryFilter } = this.props;
 
+        loadingContent();
         initDirectoryFilter(keyword, keywordType);
     };
 
@@ -33,6 +34,12 @@ class TimelineItem extends React.Component {
 };
 
 class UI_commonTimeline extends React.Component {
+    componentWillMount() {
+        const { loadingAll } = this.props;
+
+        loadingAll();
+    };
+
     componentDidMount() {
         const { initTimeline } = this.props;
         
@@ -40,7 +47,7 @@ class UI_commonTimeline extends React.Component {
     };
 
     render() {
-        const { timeline, initDirectoryFilter } = this.props;
+        const { loadingContent, timeline, initDirectoryFilter } = this.props;
 
         return (
             <div className = "content-block">
@@ -62,6 +69,7 @@ class UI_commonTimeline extends React.Component {
                                 <TimelineItem
                                     key                 = { 'timelineKey_' + timelineIndex }
                                     timelineItem        = { timelineItem }
+                                    loadingContent      = { loadingContent }
                                     initDirectoryFilter = { initDirectoryFilter }
                                 />
                             );

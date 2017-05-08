@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import $           from 'jquery';
 
-import UI_directoryItem       from './ui_directory_item';
-import { loadingAction }      from '../actions';
-import { initPaperAction }    from '../actions';
-import { initCommentsAction } from '../actions';
+import UI_directoryItem         from './ui_directory_item';
+import { loadingAllAction }     from '../actions';
+import { loadingContentAction } from '../actions';
+import { initPaperAction }      from '../actions';
+import { initCommentsAction }   from '../actions';
 
 import common_getDomain from '../modules/common_get_domain';
 
@@ -24,9 +25,6 @@ var mapDispatchToProps = (dispatch) => {
                 currentPaperId: currentPaperId
             };
 
-        /* before get data,show loading animate */
-        dispatch(loadingAction());
-
         return (
             $.post(requestUrl, jsonData, function(data) {
                 dispatch(initPaperAction(currentPaperId, data));
@@ -41,9 +39,6 @@ var mapDispatchToProps = (dispatch) => {
                 paperId: currentPaperId
             };
 
-        /* before get data,show loading animate */
-        dispatch(loadingAction());
-
         return (
             $.post(requestUrl, jsonData, function(data) {
                 dispatch(initCommentsAction(data));
@@ -52,8 +47,10 @@ var mapDispatchToProps = (dispatch) => {
     };
 
     return ({
-        initPaper   : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId)),
-        initComments: (currentPaperId) => dispatch(ajaxInitComments(currentPaperId))
+        loadingAll    : () => dispatch(loadingAllAction()),
+        loadingContent: () => dispatch(loadingContentAction()),
+        initPaper     : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId)),
+        initComments  : (currentPaperId) => dispatch(ajaxInitComments(currentPaperId))
     });
 };
 

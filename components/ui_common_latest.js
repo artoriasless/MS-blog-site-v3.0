@@ -8,8 +8,9 @@ class LatestItem extends React.Component {
     };
 
     changePaper(paperId) {
-        const { initPaper, initComments } = this.props;
+        const { loadingContent, initPaper, initComments } = this.props;
 
+        loadingContent();
         initPaper(paperId);
         initComments(paperId);
     };
@@ -37,6 +38,12 @@ class LatestItem extends React.Component {
 };
 
 class UI_commonLatest extends React.Component {
+    componentWillMount() {
+        const { loadingAll } = this.props;
+
+        loadingAll();
+    };
+
     componentDidMount() {
         const { initLatest } = this.props;
 
@@ -44,7 +51,7 @@ class UI_commonLatest extends React.Component {
     };
 
     render() {
-        const { latest, initPaper, initComments } = this.props;
+        const { loadingContent, latest, initPaper, initComments } = this.props;
 
         return (
             <div className = "content-block">
@@ -57,11 +64,12 @@ class UI_commonLatest extends React.Component {
                         latest.map((latestItem, latestIndex) => {
                             return (
                                 <LatestItem
-                                    key          = { 'latestKey_' + latestIndex }
-                                    latestItem   = { latestItem }
-                                    latestIndex  = { latestIndex }
-                                    initPaper    = { initPaper }
-                                    initComments = { initComments }
+                                    key            = { 'latestKey_' + latestIndex }
+                                    latestItem     = { latestItem }
+                                    latestIndex    = { latestIndex }
+                                    loadingContent = { loadingContent }
+                                    initPaper      = { initPaper }
+                                    initComments   = { initComments }
                                 />
                             )
                         })

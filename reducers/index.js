@@ -1,5 +1,6 @@
 import { actionTypes }         from '../actions';
-import loadingFunc             from './loading';
+import loadingAllFunc          from './loading_all';
+import loadingContentFunc      from './loading_content';
 import initDirectoryFunc       from './init_directory';
 import initDirectoryFilterFunc from './init_directory_filter';
 import initPaperFunc           from './init_paper';
@@ -10,8 +11,10 @@ import initCommentsFunc        from './init_comments';
 
 var appReducer = (state = {}, action) => {
     switch (action.type) {
-        case actionTypes.LOADING:
-            return loadingFunc(state, action);
+        case actionTypes.LOADING_ALL:
+            return loadingAllFunc(state, action);
+        case actionTypes.LOADING_CONTENT:
+            return loadingContentFunc(state, action);
         case actionTypes.INIT_DIRECTORY:
             return initDirectoryFunc(state, action);
         case actionTypes.INIT_DIRECTORY_FILTER:

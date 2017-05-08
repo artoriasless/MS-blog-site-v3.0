@@ -4,7 +4,7 @@ import jQuery from 'jquery';
 
 import CommentsItemList from './comments_item_list';
 
-import common_getDomain from '../modules/common_get_domain';
+import common_getDomain    from '../modules/common_get_domain';
 import common_getParameter from '../modules/common_get_parameter';
 import common_formatTime   from '../modules/common_format_time';
 import common_showAlert    from '../modules/common_show_alert';
@@ -14,9 +14,7 @@ import commentModal from './common_comment_modal';
 class CommentsContainer extends React.Component {
     constructor() {
         super();
-
         this.modalDefined = this.modalDefined.bind(this);
-
         this.showCommentModal = this.showCommentModal.bind(this);
     };
 
@@ -392,9 +390,9 @@ class CommentsContainer extends React.Component {
     };
 
     render() {
-        const { comments, initComments } = this.props;
-
-        const paperId = common_getParameter('paperId');
+        const comments     = this.props.comments;
+        const initComments = this.props.initComments;
+        const paperId      = common_getParameter('paperId');
 
         return (
             <div className = "comment-container">

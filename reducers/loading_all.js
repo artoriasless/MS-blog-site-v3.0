@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-var loadingFunc = (originState, action) => {
+var loadingAllFunc = (originState, action) => {
     var newState = Object.assign({}, originState);
 
     /* 隐藏整个页面内容 */
@@ -10,4 +10,4 @@ var loadingFunc = (originState, action) => {
     return newState;
 };
 
-export default loadingFunc;
+export default loadingAllFunc;

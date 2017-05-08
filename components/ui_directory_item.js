@@ -8,8 +8,9 @@ class DirectoryItem extends React.Component {
     };
 
     changePaper(paperId) {
-        const { initPaper, initComments } = this.props;
+        const { loadingContent, initPaper, initComments } = this.props;
 
+        loadingContent();
         initPaper(paperId);
         initComments(paperId);
     };
@@ -58,6 +59,12 @@ class DirectoryItem extends React.Component {
 };
 
 class UI_directoryItem extends React.Component {
+    componentWillMount() {
+        const { loadingAll } = this.props;
+
+        loadingAll();
+    };
+
     componentDidMount() {
         const { initDirectory } = this.props;
 
@@ -68,7 +75,7 @@ class UI_directoryItem extends React.Component {
     };
 
     render() {
-        const { directory, initPaper, initComments } = this.props;
+        const { loadingContent, directory, initPaper, initComments } = this.props;
 
         return (
             <div 
@@ -84,10 +91,11 @@ class UI_directoryItem extends React.Component {
                     directory.map((directoryItem, directoryIndex) => {
                         return (
                             <DirectoryItem 
-                                key           = { 'directoryKey_' + directoryIndex }
-                                directoryItem = { directoryItem } 
-                                initPaper     = { initPaper }
-                                initComments  = { initComments }
+                                key            = { 'directoryKey_' + directoryIndex }
+                                directoryItem  = { directoryItem } 
+                                loadingContent = { loadingContent }
+                                initPaper      = { initPaper }
+                                initComments   = { initComments }
                             />
                         )
                     })

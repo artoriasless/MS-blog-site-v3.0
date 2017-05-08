@@ -13,8 +13,8 @@ class PrevPaper extends React.Component {
         if (paper.currentPaperId == paper.prevPaper.id) {
             return (
                 <span 
-                    id = "prevPaper"
-                    title = { paper.prevPaper.title }
+                    id           = "prevPaper"
+                    title        = { paper.prevPaper.title }
                     data-paperId = { paper.prevPaper.id }
                 >
                     { paper.prevPaper.title }
@@ -24,11 +24,11 @@ class PrevPaper extends React.Component {
         else {
             return (
                 <Link 
-                    id = "prevPaper"
-                    to = { '/paper?paperId=' + paper.prevPaper.id }
-                    title = { paper.prevPaper.title }
+                    id           = "prevPaper"
+                    to           = { '/paper?paperId=' + paper.prevPaper.id }
+                    title        = { paper.prevPaper.title }
                     data-paperId = { paper.prevPaper.id }
-                    onClick = { () => changePaper(paper.prevPaper.id) }
+                    onClick      = { () => changePaper(paper.prevPaper.id) }
                 >
                     { paper.prevPaper.title }
                 </Link>
@@ -38,15 +38,14 @@ class PrevPaper extends React.Component {
 };
 
 class NextPaper extends React.Component {
-    
     render() {
         const { paper, changePaper } = this.props;
 
         if (paper.currentPaperId == paper.nextPaper.id) {
             return (
                 <span 
-                    id = "nextPaper"
-                    title = { paper.nextPaper.title }
+                    id           = "nextPaper"
+                    title        = { paper.nextPaper.title }
                     data-paperId = { paper.nextPaper.id }
                 >
                     { paper.nextPaper.title }
@@ -56,11 +55,11 @@ class NextPaper extends React.Component {
         else {
             return (
                 <Link 
-                    id = "nextPaper"
-                    to = { '/paper?paperId=' + paper.nextPaper.id }
-                    title = { paper.nextPaper.title }
+                    id           = "nextPaper"
+                    to           = { '/paper?paperId=' + paper.nextPaper.id }
+                    title        = { paper.nextPaper.title }
                     data-paperId = { paper.nextPaper.id }
-                    onClick = { () => changePaper(paper.nextPaper.id) }
+                    onClick      = { () => changePaper(paper.nextPaper.id) }
                 >
                     { paper.nextPaper.title }
                 </Link>
@@ -72,7 +71,6 @@ class NextPaper extends React.Component {
 class UI_paperItem extends React.Component {
     constructor() {
         super();
-
         this.addCodeCount = this.addCodeCount.bind(this);
         this.changePaper  = this.changePaper.bind(this);
     };
@@ -104,17 +102,24 @@ class UI_paperItem extends React.Component {
     };
 
     changePaper(paperId) {
-        const { initPaper, initComments } = this.props;
+        const { loadingContent, initPaper, initComments } = this.props;
 
+        loadingContent();
         initPaper(paperId);
         initComments(paperId);
-        $('#loading').addClass('hidden');
+    };
+    
+    componentWillMount() {
+        const { loadingAll } = this.props;
+
+        loadingAll();
     };
 
     componentDidMount() {
-        const { paper, initPaper, initComments } = this.props;
+        const { loadingAll, paper, initPaper, initComments } = this.props;
         
         if (!paper.currentPaperId) {
+            loadingAll();
             initPaper(common_getParameter('paperId'));
             initComments(common_getParameter('paperId'));
         }
@@ -122,14 +127,6 @@ class UI_paperItem extends React.Component {
 
     componentDidUpdate() {
         this.addCodeCount();
-        /* 隐藏整个页面内容 */
-        $('#paperContent').addClass('hidden');
-	    $('#loading').removeClass('hidden');
-        setTimeout(function(){
-            /* 显示整个页面内容 */
-            $('#loading').addClass('hidden');
-            $('#paperContent').removeClass('hidden').addClass('fade-in-animate');
-        }, 1000);
     };
 
     render() {

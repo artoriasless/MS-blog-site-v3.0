@@ -26,6 +26,7 @@ class PageDirectoryFilter extends React.Component {
         setTimeout(function(){
             /* 显示整个页面内容 */
             $('#loading').addClass('hidden');
+            $('#paperContent').removeClass('hidden').addClass('fade-in-animate');
             $('#bodyContainer').removeClass('hidden').addClass('fade-in-animate');
         }, 1000);
     };
@@ -66,7 +67,7 @@ class PageDirectoryFilter extends React.Component {
                 </div>
 
                 {/* 顶部导航栏 */}
-                <CommonHeader />
+                <CommonHeader/>
 
                 {/* 主体部分 */}
                 <div 
@@ -76,21 +77,21 @@ class PageDirectoryFilter extends React.Component {
                     <div className = "body-content row">
                         <div className = "col-xs-3">
                             {/* notice部分 */}
-                            <CommonNotice />
+                            <CommonNotice/>
 
                             {/* 文章的一些标签 */}
-                            <CommonTags />
+                            <CommonTags/>
 
                             {/* 最近的5篇文章的标题 */}
-                            <CommonLatest />
+                            <CommonLatest/>
 
                             {/* 时间线 */}
-                            <CommonTimeline />
+                            <CommonTimeline/>
                         </div>
 
                         <div className = "col-xs-9">
                             {/* 目录列表 */}
-                            <DirectoryFilterItemList />
+                            <DirectoryFilterItemList/>
                         </div>
                     </div>
                 </div>

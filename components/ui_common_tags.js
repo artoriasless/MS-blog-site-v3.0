@@ -8,8 +8,9 @@ class TagItem extends React.Component {
     };
 
     directoryFilter(keyword, keywordType) {
-        const { initDirectoryFilter } = this.props;
-
+        const { loadingContent, initDirectoryFilter } = this.props;
+        
+        loadingContent();
         initDirectoryFilter(keyword, keywordType);
     };
 
@@ -31,6 +32,12 @@ class TagItem extends React.Component {
 };
 
 class UI_commonTags extends React.Component {
+    componentWillMount() {
+        const { loadingAll } = this.props;
+
+        loadingAll();
+    };
+
     componentDidMount() {
         const { initTags } = this.props;
         
@@ -38,7 +45,7 @@ class UI_commonTags extends React.Component {
     };
 
     render() {
-        const { tags, initDirectoryFilter } = this.props;
+        const { loadingContent, tags, initDirectoryFilter } = this.props;
 
         return (
             <div className = "content-block">
@@ -53,6 +60,7 @@ class UI_commonTags extends React.Component {
                                 <TagItem 
                                     key                 = { 'tagKey_' + tagIndex }
                                     tagItem             = { tagItem } 
+                                    loadingContent      = { loadingContent }
                                     initDirectoryFilter = { initDirectoryFilter }
                                 />
                             )
