@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ParagraphType   from '../components/new_paper_paragraph_type';
 import ParagraphKit    from '../components/new_paper_paragraph_kit';
 import InputArea       from '../components/new_paper_input_area';
@@ -10,9 +11,8 @@ import smoothScroll from '../modules/plugin_smooth_scroll';
 class PageNewPaper extends React.Component {
     constructor() {
         super();
-
         this.scrollToTop = this.scrollToTop.bind(this);
-
+        
         this.state = {
             addedLink: {
                 linkVal  : '',
@@ -80,8 +80,8 @@ class PageNewPaper extends React.Component {
 
     render() {
         const css_id_newPaperPage = {
-                margin : 0,
-                padding: 0
+                padding: 0,
+                margin : 0
             };
 
         return (
@@ -94,7 +94,7 @@ class PageNewPaper extends React.Component {
 
                 {/* 【回到顶部】快捷键 */}
                 <div 
-                    id = "scrollBtn"
+                    id      = "scrollBtn"
                     onClick = { this.scrollToTop }
                 >
                     <img src = "./img/scroll-bg.png"/>
@@ -102,9 +102,9 @@ class PageNewPaper extends React.Component {
 
                 {/* 主体部分 */}
                 <div 
-                    id = "newPaperPage" 
+                    id        = "newPaperPage" 
+                    style     = { css_id_newPaperPage }
                     className = "body-container"
-                    style = { css_id_newPaperPage }
                 >
                     <div className = "body-content row new-paper-container">
                         <div className = "col-xs-6">

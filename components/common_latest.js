@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
+import $           from 'jquery';
 
-import UI_commonLatest from './ui_common_latest';
-
+import UI_commonLatest        from './ui_common_latest';
+import { loadingAction }      from '../actions';
 import { initLatestAction }   from '../actions';
 import { initPaperAction }    from '../actions';
 import { initCommentsAction } from '../actions';
-
-import $ from 'jquery';
 
 import common_getDomain from '../modules/common_get_domain';
 
@@ -23,6 +22,9 @@ var mapDispatchToProps = (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getLatest.node';
 
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
+
         return (
             $.post(requestUrl, function(data) {
                 dispatch(initLatestAction(data));
@@ -37,6 +39,9 @@ var mapDispatchToProps = (dispatch) => {
                 currentPaperId: currentPaperId
             };
 
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
+
         return (
             $.post(requestUrl, jsonData, function(data) {
                 dispatch(initPaperAction(currentPaperId, data));
@@ -50,6 +55,9 @@ var mapDispatchToProps = (dispatch) => {
         const jsonData = {
                 paperId: currentPaperId
             };
+        
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
 
         return (
             $.post(requestUrl, jsonData, function(data) {
@@ -59,8 +67,8 @@ var mapDispatchToProps = (dispatch) => {
     };
 
     return ({
-        initLatest: () => dispatch(ajaxInitLatest()),
-        initPaper : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId)),
+        initLatest  : () => dispatch(ajaxInitLatest()),
+        initPaper   : (currentPaperId) => dispatch(ajaxInitPaper(currentPaperId)),
         initComments: (currentPaperId) => dispatch(ajaxInitComments(currentPaperId))
     });
 };

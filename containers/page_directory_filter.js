@@ -1,4 +1,6 @@
 import React from 'react';
+import $     from 'jquery';
+
 import CommonHeader            from '../components/common_header';
 import CommonNotice            from '../components/common_notice';
 import CommonTags              from '../components/common_tags';
@@ -6,30 +8,34 @@ import CommonLatest            from '../components/common_latest';
 import CommonTimeline          from '../components/common_timeline';
 import DirectoryFilterItemList from '../components/directory_filter_item_list';
 
-import $ from 'jquery';
-
 import smoothScroll from '../modules/plugin_smooth_scroll';
 
 class PageDirectoryFilter extends React.Component {
     constructor() {
         super();
-
         this.scrollToTop = this.scrollToTop.bind(this);
+        this.dataLoaded  = this.dataLoaded.bind(this);
     };
 
     scrollToTop() {
         smoothScroll('#topAnchor', 750);
     };
 
-    componentDidMount() {
-        /* 隐藏整个页面内容 */
-        $('#bodyContainer').addClass('hidden');
-	    $('#loading').removeClass('hidden');
+    dataLoaded() {
+        /* 与 action —— loading 相对应 */
         setTimeout(function(){
             /* 显示整个页面内容 */
             $('#loading').addClass('hidden');
             $('#bodyContainer').removeClass('hidden').addClass('fade-in-animate');
         }, 1000);
+    };
+
+    componentDidMount() {
+        this.dataLoaded();
+    };
+
+    componentDidUpdate() {
+        this.dataLoaded();
     };
 
     render() {
@@ -42,7 +48,7 @@ class PageDirectoryFilter extends React.Component {
 
                 {/* 【载入中】图标 */}
                 <div 
-                    id = "loading" 
+                    id        = "loading" 
                     className = "loading"
                 >
                     Loading
@@ -53,7 +59,7 @@ class PageDirectoryFilter extends React.Component {
 
                 {/* 【回到顶部】快捷键 */}
                 <div 
-                    id = "scrollBtn"
+                    id      = "scrollBtn"
                     onClick = { this.scrollToTop }
                 >
                     <img src = "./img/scroll-bg.png"/>
@@ -64,7 +70,7 @@ class PageDirectoryFilter extends React.Component {
 
                 {/* 主体部分 */}
                 <div 
-                    id = "bodyContainer" 
+                    id        = "bodyContainer" 
                     className = "body-container init hidden"
                 >
                     <div className = "body-content row">

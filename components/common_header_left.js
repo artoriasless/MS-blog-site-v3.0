@@ -5,7 +5,7 @@ class CommonHeaderLeft extends React.Component {
         return (
             <div className = "nav-header pull-left">
                 <img 
-                    id = "logoImg" 
+                    id  = "logoImg" 
                     src = "./img/logo.png"
                 />
             </div>

@@ -1,10 +1,9 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
 
 class TagItem extends React.Component {
     constructor() {
         super();
-
         this.directoryFilter = this.directoryFilter.bind(this);
     };
 
@@ -20,7 +19,7 @@ class TagItem extends React.Component {
         return (
             <dd>
                 <Link 
-                    to = "/directoryFilter"
+                    to      = "/directoryFilter"
                     onClick = { () => this.directoryFilter(tagName, 'tag') }
                 >
                     <span className = "tag-name">{ tagName }</span>
@@ -44,7 +43,7 @@ class UI_commonTags extends React.Component {
         return (
             <div className = "content-block">
                 <dl 
-                    id = "tagList" 
+                    id        = "tagList" 
                     className = "comm-dl"
                 >
                     <dt>Tags</dt>
@@ -52,8 +51,8 @@ class UI_commonTags extends React.Component {
                         tags.map((tagItem, tagIndex) => {
                             return (
                                 <TagItem 
-                                    key     = { 'tagKey_' + tagIndex }
-                                    tagItem = { tagItem } 
+                                    key                 = { 'tagKey_' + tagIndex }
+                                    tagItem             = { tagItem } 
                                     initDirectoryFilter = { initDirectoryFilter }
                                 />
                             )

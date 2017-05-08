@@ -6,7 +6,6 @@ import PluginRoundAbout from '../modules/plugin_round_about';
 class TimelineItem extends React.Component {
     constructor() {
         super();
-
         this.directoryFilter = this.directoryFilter.bind(this);
     };
 
@@ -22,7 +21,7 @@ class TimelineItem extends React.Component {
         return (
             <dd>
                 <Link 
-                    to = "/directoryFilter"
+                    to      = "/directoryFilter"
                     onClick = { () => this.directoryFilter(timeline, 'timeline') }
                 >
                     <span className = "time-val">{ timeline }</span>
@@ -46,7 +45,7 @@ class UI_commonTimeline extends React.Component {
         return (
             <div className = "content-block">
                 <dl 
-                    id = "timeList" 
+                    id        = "timeList" 
                     className = "comm-dl"
                 >
                     <a className = "content-icon">
@@ -61,8 +60,8 @@ class UI_commonTimeline extends React.Component {
                         timeline.map((timelineItem, timelineIndex) => {
                             return (
                                 <TimelineItem
-                                    key          = { 'timelineKey_' + timelineIndex }
-                                    timelineItem = { timelineItem }
+                                    key                 = { 'timelineKey_' + timelineIndex }
+                                    timelineItem        = { timelineItem }
                                     initDirectoryFilter = { initDirectoryFilter }
                                 />
                             );

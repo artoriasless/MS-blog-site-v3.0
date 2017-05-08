@@ -1,10 +1,9 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
 
 class ParagraphKit extends React.Component {
     constructor() {
         super();
-
         this.addKitBR   = this.addKitBR.bind(this);
         this.addKitLink = this.addKitLink.bind(this);
     };
@@ -43,15 +42,15 @@ class ParagraphKit extends React.Component {
                 </div>
                 <div className = "btn-container">
                     <div 
+                        style     = { css_common_noPadding }
                         className = "col-xs-3"
-                        style = { css_common_noPadding }
                     >
                         <div className = "form-group">
                             <input
-                                type = "text"
-                                className = "form-control"
+                                type        = "text"
+                                className   = "form-control"
                                 placeholder = "输入链接地址"
-                                ref = "linkVal"
+                                ref         = "linkVal"
                             />
                         </div>
                     </div>
@@ -61,27 +60,27 @@ class ParagraphKit extends React.Component {
                     >
                         <div className = "form-group">
                             <input
-                                type = "text"
-                                className = "form-control"
+                                type        = "text"
+                                className   = "form-control"
                                 placeholder = "输入标题名称"
-                                ref = "linkTitle"
+                                ref         = "linkTitle"
                             />
                         </div>
                     </div>
                     <div className = "col-xs-3 text-center">
                         <button 
-                            type = "button" 
+                            type      = "button" 
                             className = "btn btn-default"
-                            onClick = { (e) => this.addKitLink(e) }
+                            onClick   = { (e) => this.addKitLink(e) }
                         >
                             添加外链
                         </button>
                     </div>
                     <div className = "col-xs-3 text-center">
                         <button 
-                            type = "button" 
+                            type      = "button" 
                             className = "btn btn-default"
-                            onClick = { (e) => this.addKitBR(e) }
+                            onClick   = { (e) => this.addKitBR(e) }
                         >
                             添加换行
                         </button>

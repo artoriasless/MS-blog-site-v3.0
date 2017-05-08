@@ -2,18 +2,14 @@ import React  from 'react';
 import $      from 'jquery';
 import jQuery from 'jquery';
 
-// var $      = require('jquery'),
-//     jQuery = require('jquery');
-//              require('jquery-ui');
-
 class CommonNotice extends React.Component {
     constructor() {
         super();
-
         this.toggleNotice = this.toggleNotice.bind(this);
     };
 
     toggleNotice() {
+        /* toggle notice content manually */
         var $toggleBtn = $('#noticeToggleBtn'),
             $icon      = $toggleBtn.find('.fa');
 
@@ -28,7 +24,7 @@ class CommonNotice extends React.Component {
     };
 
     componentDidMount() {
-        /* 1.5s 后自动隐藏notice内容框 */
+        /* hide notice content in 3 seconds */
         setTimeout(function() {
             var $toggleBtn = $('#noticeToggleBtn'),
                 $icon      = $toggleBtn.find('.fa');
@@ -45,7 +41,7 @@ class CommonNotice extends React.Component {
                     <dt>
                         Notice
                         <a 
-                            id = "noticeToggleBtn"
+                            id      = "noticeToggleBtn"
                             onClick = { () => this.toggleNotice() }
                         >
                             <i className = "fa fa-caret-down"></i>
@@ -64,7 +60,7 @@ class CommonNotice extends React.Component {
                     <dd>
                         <i className = "fa fa-circle"></i>
                         &nbsp;
-                        关于博文中的代码，这一版本把xmp标签换成了pre标签，尖括号也做了转义，不同浏览器应该不会出现问题了吧
+                        关于博文中的代码，这一版本把xmp标签换成了pre标签，尖括号也做了转义，不同浏览器应该不会出现问题了吧。
                     </dd>
                 </dl>
             </div>

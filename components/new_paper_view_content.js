@@ -1,14 +1,11 @@
-import React from 'react';
-
-import $ from 'jquery';
+import React  from 'react';
+import $      from 'jquery';
 import jQuery from 'jquery';
 
 class ViewHtml extends React.Component {
     constructor() {
         super();
-
         this.tabDefined = this.tabDefined.bind(this);
-
         this.addCodeCount = this.addCodeCount.bind(this);
     };
 
@@ -216,38 +213,38 @@ class ViewHtml extends React.Component {
         return (
             <div className = "new-paper-view-container">
                 <div 
-                    id = "viewToggleContainer" 
+                    id        = "viewToggleContainer" 
                     className = "col-xs-3 view-toggle-container"
                 >
                     <ul className = "nav nav-pills nav-stacked">
                         <li 
-                            role = "presentation" 
+                            role      = "presentation" 
                             className = "active"
                         >
-                            <a href="#textPaperContent">view text</a>
+                            <a href = "#textPaperContent">view text</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#htmlPaperContent">view html</a>
+                        <li role = "presentation">
+                            <a href = "#htmlPaperContent">view html</a>
                         </li>
                     </ul>
                 </div>
                 <div className = "col-xs-9 tab-content">
                     <div 
-                        id="textPaperContent"
-                        role = "tabpanel" 
+                        id        = "textPaperContent"
+                        role      = "tabpanel" 
                         className = "tab-pane active view-content"
                     >
                         <div className = "page-header">
                             <h1>TEXT文本</h1>
                         </div>
                         <div 
-                            id = "textContent"
+                            id        = "textContent"
                             className = "paper-content"
                         ></div>
                     </div>
                     <div 
-                        id="htmlPaperContent"
-                        role = "tabpanel" 
+                        id        = "htmlPaperContent"
+                        role      = "tabpanel" 
                         className = "tab-pane view-content"
                     >
                         <div className = "page-header">

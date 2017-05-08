@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
+import $           from 'jquery';
 
-import UI_commonTimeline from './ui_common_timeline';
-
+import UI_commonTimeline             from './ui_common_timeline';
+import { loadingAction }             from '../actions';
 import { initTimelineAction }        from '../actions';
 import { initDirectoryFilterAction } from '../actions';
-
-import $ from 'jquery';
 
 import common_getDomain from '../modules/common_get_domain';
 
@@ -22,6 +21,9 @@ var mapDispatchToProps = (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getTimeline.node';
 
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
+
         return (
             $.post(requestUrl, function(data) {
                 dispatch(initTimelineAction(data));
@@ -36,6 +38,9 @@ var mapDispatchToProps = (dispatch) => {
                 keyword    : keyword,
                 keywordType: keywordType
             };
+
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
 
         return (
             $.post(requestUrl, jsonData, function(data) {

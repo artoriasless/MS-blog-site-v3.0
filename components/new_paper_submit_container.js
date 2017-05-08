@@ -1,7 +1,6 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
-
-import $ from 'jquery';
+import $        from 'jquery';
 
 import common_formatTime from '../modules/common_format_time';
 import common_getDomain  from '../modules/common_get_domain';
@@ -9,7 +8,6 @@ import common_getDomain  from '../modules/common_get_domain';
 class SubmitContainer extends React.Component {
     constructor() {
         super();
-
         this.insertNewPaper = this.insertNewPaper.bind(this);
     };
 
@@ -65,57 +63,57 @@ class SubmitContainer extends React.Component {
                 <div className = "col-xs-6 title-input-container">
                     <div className = "form-group">
                         <input
-                            className = "form-control"
-                            type = "text"
+                            type        = "text"
+                            className   = "form-control"
                             placeholder = "输入文章的标题"
-                            ref = "paperTitle"
+                            ref         = "paperTitle"
                         />
                     </div>
                 </div>
                 <div className = "col-xs-3 tag-input-container">
                     <div className = "form-group">
                         <input
-                            className = "form-control"
-                            type = "text"
+                            type        = "text"
+                            className   = "form-control"
                             placeholder = "输入文章的分类标签"
-                            ref = "paperTag"
+                            ref         = "paperTag"
                         />
                     </div>
                 </div>
                 <div className = "col-xs-3 subtag-input-container">
                     <div className = "form-group">
                         <input
-                            className = "form-control"
-                            type = "text"
+                            type        = "text"
+                            className   = "form-control"
                             placeholder = "输入文章的分类副标签"
-                            ref = "paperSubtag"
+                            ref         = "paperSubtag"
                         />
                     </div>
                 </div>
                 <div className = "col-xs-12 abstract-input-container">
                     <div className = "form-group">
                         <textarea
-                            className = "form-control"
+                            className   = "form-control"
                             placeholder = "输入文章的摘要"
-                            ref = "paperAbstract"
+                            ref         = "paperAbstract"
                         ></textarea>
                     </div>
                 </div>
                 <div className = "col-xs-10 key-input-container">
                     <div className = "form-group">
                         <input 
-                            className = "form-control" 
-                            type = "text" 
+                            type        = "text" 
+                            className   = "form-control" 
                             placeholder = "输入密钥代码，用于校验admin身份"
-                            ref = "paperPermitKey"
+                            ref         = "paperPermitKey"
                         />
                     </div>
                 </div>
                 <div className = "col-xs-2 submit-btn-container">
                     <button 
-                        type = "button" 
+                        type      = "button" 
                         className = "btn btn-success"
-                        onClick = { (e) => this.insertNewPaper(e) }
+                        onClick   = { (e) => this.insertNewPaper(e) }
                     >
                         提交文章
                     </button>

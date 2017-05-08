@@ -9,10 +9,8 @@ import contactModal from './common_contact_modal';
 class CommonHeaderCenter extends React.Component {
     constructor() {
         super();
-
-        this.modalDefined = this.modalDefined.bind(this);
-        this.tooltipDefined = this.tooltipDefined.bind(this);
-
+        this.modalDefined     = this.modalDefined.bind(this);
+        this.tooltipDefined   = this.tooltipDefined.bind(this);
         this.viewAboutModal   = this.viewAboutModal.bind(this);
         this.viewContactModal = this.viewContactModal.bind(this);
     };
@@ -872,9 +870,7 @@ class CommonHeaderCenter extends React.Component {
                 <li>
                     <Link 
                         id = "blogLink"
-                        to = { {
-                            pathname: "/directory",
-                        } }
+                        to = "/directory"
                     >
                         <i className = "fa fa-book"></i>
                         &nbsp;
@@ -883,7 +879,7 @@ class CommonHeaderCenter extends React.Component {
                 </li>
                 <li>
                     <a 
-                        id = "aboutLink"
+                        id      = "aboutLink"
                         onClick = { this.viewAboutModal }
                     >
                         <i className = "fa fa-info-circle"></i>
@@ -893,7 +889,7 @@ class CommonHeaderCenter extends React.Component {
                 </li>
                 <li>
                     <a 
-                        id = "contactLink"
+                        id      = "contactLink"
                         onClick = { this.viewContactModal }
                     >
                         <i className = "fa fa-envelope-o"></i>

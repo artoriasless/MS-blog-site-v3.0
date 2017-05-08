@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
+import $           from 'jquery';
 
-import UI_directoryItem from './ui_directory_item';
-
+import UI_directoryItem        from './ui_directory_item';
+import { loadingAction }       from '../actions';
 import { initDirectoryAction } from '../actions';
 import { initPaperAction }     from '../actions';
 import { initCommentsAction }  from '../actions';
-
-import $ from 'jquery';
 
 import common_getDomain from '../modules/common_get_domain';
 
@@ -23,6 +22,9 @@ var mapDispatchToProps = (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getDirectory.node';
 
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
+
         return (
             $.post(requestUrl, function(data) {
                 dispatch(initDirectoryAction(data));
@@ -36,6 +38,9 @@ var mapDispatchToProps = (dispatch) => {
         const jsonData = {
                 currentPaperId: currentPaperId
             };
+        
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
 
         return (
             $.post(requestUrl, jsonData, function(data) {
@@ -50,6 +55,9 @@ var mapDispatchToProps = (dispatch) => {
         const jsonData = {
                 paperId: currentPaperId
             };
+        
+        /* before get data,show loading animate */
+        dispatch(loadingAction());
 
         return (
             $.post(requestUrl, jsonData, function(data) {

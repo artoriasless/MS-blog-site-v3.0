@@ -38,11 +38,11 @@ class PageIndex extends React.Component {
                     style     = { css_class_inner }
                     className = "inner" 
                 >
-                    <IndexHeader />
-                    <IndexSection01 />
-                    <hr style = { css_tag_hr } />
-                    <IndexSection02 />
-                    <IndexFooter />
+                    <IndexHeader/>
+                    <IndexSection01/>
+                    <hr style = { css_tag_hr }/>
+                    <IndexSection02/>
+                    <IndexFooter/>
                 </div>
             </div>
         );

@@ -1,10 +1,9 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
 
 class DirectoryItem extends React.Component {
     constructor() {
         super();
-
         this.changePaper = this.changePaper.bind(this);
     };
 
@@ -29,10 +28,10 @@ class DirectoryItem extends React.Component {
                 <div className = "item-title">
                     <h2>
                         <Link 
-                            to = { '/paper?paperId=' + itemId }
-                            title = { param_title }
+                            to         = { '/paper?paperId=' + itemId }
+                            title      = { param_title }
+                            onClick    = { () => this.changePaper(itemId) }
                             data-hover = { param_title }
-                            onClick = { () => this.changePaper(itemId) }
                         >
                             { text_title }
                         </Link>
@@ -75,8 +74,6 @@ class UI_directoryItem extends React.Component {
             <div 
                 id = "paperContent" 
                 className = "content-block" 
-                // data-keyword = { param_dataKeyword }
-                // data-keywordType = { param_dataKeywordType }
             >
                 <div className = "paper-title">
                     <h1>Directory</h1>

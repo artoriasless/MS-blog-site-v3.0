@@ -13,10 +13,12 @@ var controllerList = {
 };
 
 var controller = function(request, response) {
-    var callbackFunc  = function(resultObj) { response.json(resultObj); },
-        viewSqlModule = require('../models/' + controllerList[request.path] +'.js');
+    var callbackFunc  = function(resultObj) { response.json(resultObj); };
     
-    viewSqlModule.sqlQuery(request, callbackFunc);
+    if (controllerList[request.path]) {
+        var viewSqlModule = require('../models/' + controllerList[request.path] +'.js')
+        viewSqlModule.sqlQuery(request, callbackFunc);
+    }
 }
 
 module.exports.controller = controller;

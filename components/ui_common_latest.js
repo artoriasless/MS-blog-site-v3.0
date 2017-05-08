@@ -1,10 +1,9 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
 
 class LatestItem extends React.Component {
     constructor() {
         super();
-
         this.changePaper  = this.changePaper.bind(this);
     };
 
@@ -17,16 +16,16 @@ class LatestItem extends React.Component {
 
     render() {
         const { latestItem, latestIndex } = this.props;
-        const param_title  = '【' + latestItem.date + '】' + latestItem.title;
-        const param_dataNo = parseInt(latestIndex) + 1 + '.';
-        const text_title   = latestItem.title;
-        const itemId       = latestItem.id;
+        const param_title                 = '【' + latestItem.date + '】' + latestItem.title;
+        const param_dataNo                = parseInt(latestIndex) + 1 + '.';
+        const text_title                  = latestItem.title;
+        const itemId                      = latestItem.id;
 
         return (
             <dd>
                 <Link 
-                    to = { '/paper?paperId=' + itemId }
-                    title = { param_title }
+                    to      = { '/paper?paperId=' + itemId }
+                    title   = { param_title }
                     data-no = { param_dataNo }
                     onClick = { () => this.changePaper(itemId) }
                 >
@@ -50,7 +49,7 @@ class UI_commonLatest extends React.Component {
         return (
             <div className = "content-block">
                 <dl 
-                    id = "latestList" 
+                    id        = "latestList" 
                     className = "comm-dl"
                 >
                     <dt>Latest</dt>
