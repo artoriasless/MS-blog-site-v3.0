@@ -5,7 +5,9 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     urlencodedParser = bodyParser.urlencoded({
         extended: false
-    });
+    }),
+
+    log = require('./log').log;
 
 /* router level */
 var router = require('./routes/route.js');
@@ -16,7 +18,13 @@ var controller = require('./controllers/controller.js').controller;
 app.use(express.static('static'));
 
 app.get('/*', function(request, response) {
-    router.route(__dirname, request, response);
+    var clientIp        = request.headers['x-real-ip'] ? request.headers['x-real-ip'] : request.ip.replace(/::ffff:/, ''),
+        logCallbackFunc = function() {
+            router.route(__dirname, request, response);
+        };
+
+    /* 记录客户端访问者的ip，用于设置黑名单 */
+    log(clientIp, logCallbackFunc);
 });
 
 app.post('/*', urlencodedParser, function(request, response) {
