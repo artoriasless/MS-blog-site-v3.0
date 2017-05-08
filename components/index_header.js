@@ -1,4 +1,4 @@
-import React from 'react';
+import React    from 'react';
 import { Link } from 'react-router';
 
 class IndexHeader extends React.Component {
@@ -8,28 +8,23 @@ class IndexHeader extends React.Component {
                 paddingBottom: 10
             };
         const css_tag_h1 = {
-                fontFamily   : '\'Chivo\', \'Helvetica Neue\', Helvetica, Arial, serif',
-                fontSize     : 48,
-                fontWeight   : 900,
                 lineHeight   : 1.2,
                 color        : '#303030',
+                fontSize     : 48,
+                fontWeight   : 900,
+                fontFamily   : '\'Chivo\', \'Helvetica Neue\', Helvetica, Arial, serif',
                 letterSpacing: -1
             };
         const css_tag_h2 = {
-                fontSize     : 24,
-                fontWeight   : 'normal',
                 lineHeight   : 1.3,
                 color        : '#aaa',
+                fontSize     : 24,
+                fontWeight   : 'normal',
                 letterSpacing: -1
             };
         const css_id_viewBolg = {
-                borderRadius: 15,
-                marginRight : 0
-            };
-        
-        const passState = {
-                keyword: '', 
-                keywordType: '' 
+                marginRight : 0,
+                borderRadius: 15
             };
 
         return (

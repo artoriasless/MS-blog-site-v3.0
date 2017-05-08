@@ -1,11 +1,10 @@
 import React from 'react';
+import $     from 'jquery';
 
 import IndexHeader    from '../components/index_header';
 import IndexSection01 from '../components/index_section_01';
 import IndexSection02 from '../components/index_section_02';
 import IndexFooter    from '../components/index_footer';
-
-import $ from 'jquery';
 
 class PageIndex extends React.Component {
     render() {

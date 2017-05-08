@@ -1,12 +1,12 @@
 import React from 'react';
+import $     from 'jquery';
+
 import CommonHeader      from '../components/common_header';
 import CommonNotice      from '../components/common_notice';
 import CommonTags        from '../components/common_tags';
 import CommonLatest      from '../components/common_latest';
 import CommonTimeline    from '../components/common_timeline';
 import DirectoryItemList from '../components/directory_item_list';
-
-import $ from 'jquery';
 
 import smoothScroll from '../modules/plugin_smooth_scroll';
 
