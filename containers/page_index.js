@@ -1,4 +1,5 @@
 import React from 'react';
+
 import IndexHeader    from '../components/index_header';
 import IndexSection01 from '../components/index_section_01';
 import IndexSection02 from '../components/index_section_02';
@@ -19,11 +20,11 @@ class PageIndex extends React.Component {
             };
         const css_tag_hr = {
                 height       : 1,
-                paddingBottom: '1em',
+                border       : 'none',
                 marginTop    : '1em',
                 lineHeight   : 1,
                 background   : 'transparent url(\'./img/hr.png\') 50% 0 no-repeat',
-                border       : 'none'
+                paddingBottom: '1em'
             };
         
         $('body').addClass('init-index');
@@ -31,12 +32,12 @@ class PageIndex extends React.Component {
 
         return (
             <div 
-                id = "container" 
+                id    = "container" 
                 style = { css_id_container }
             >
                 <div 
+                    style     = { css_class_inner }
                     className = "inner" 
-                    style = { css_class_inner }
                 >
                     <IndexHeader />
                     <IndexSection01 />

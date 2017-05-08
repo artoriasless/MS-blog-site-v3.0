@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import FontAwesome from 'react-fontawesome';
 
 class IndexHeader extends React.Component {
     render() {
@@ -41,19 +40,13 @@ class IndexHeader extends React.Component {
                 <h2 style = { css_tag_h2 }>
                     blog of MS
                     <Link 
-                        id = "viewBlog" 
+                        id        = "viewBlog" 
+                        style     = { css_id_viewBolg }
                         className = "pull-right btn btn-default btn-sm" 
-                        style = { css_id_viewBolg }
-                        to = { {
-                            pathname: "/directory",
-                            state   : passState
-                        } }
+                        to        = "/directory"
                     >
                         View Blog&nbsp;&nbsp;
-                        <FontAwesome 
-                            name = "sign-in"
-                            tag  = "i"
-                        />
+                        <i className = "fa fa-sign-in"></i>
                     </Link>
                 </h2>
             </header>
