@@ -26,9 +26,9 @@ class PageIndex extends React.Component {
                 paddingBottom: '1em'
             };
         
-        $('body').addClass('init-index');
         console.info('Thx for visiting my blog!');
-
+        $('body').addClass('init-index');
+        
         return (
             <div 
                 id    = "container" 

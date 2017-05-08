@@ -34,13 +34,31 @@ const history = syncHistoryWithStore(browserHistory, store);
 const appDom  = document.getElementById('app');
 const routes  = (
     <Router history = { history }>
-        <Route path = "/" component = { App }>
+        <Route 
+            path      = "/" 
+            component = { App }
+        >
             <IndexRoute component = { PageIndex }/>
-            <Route path = "index" component = { PageIndex }/>
-            <Route path = "directory" component = { PageDirectory }/>
-            <Route path = "directoryFilter" component = { PageDirectoryFilter }/>
-            <Route path = "paper" component = { PagePaper }/>
-            <Route path = "newPaper" component = { PageNewPaper }/>
+            <Route 
+                path      = "index" 
+                component = { PageIndex }
+            />
+            <Route 
+                path      = "directory" 
+                component = { PageDirectory }
+            />
+            <Route 
+                path      = "directoryFilter" 
+                component = { PageDirectoryFilter }
+            />
+            <Route 
+                path      = "paper" 
+                component = { PagePaper }
+            />
+            <Route 
+                path      = "newPaper" 
+                component = { PageNewPaper }
+            />
         </Route>
     </Router>
 );
