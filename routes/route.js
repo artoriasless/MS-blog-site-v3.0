@@ -10,17 +10,22 @@ const routeList = {
     '/newPaper': '/index.html'
 };
 
-var route = function(dirname, request, response) {
+var route = function(dirname, request, response, blackListTag) {
     let path     = request.originalUrl;
     let paperReg = /(\/paper\?paperId=\d+)|(\/paper\.html\?paperId=\d+)/g;
 
-    if (routeList[path] || paperReg.test(path)) {
-        // let fileName = routeList[path] || 'index.html';
-        // response.sendFile(dirname + fileName);
-        response.sendFile(dirname + '/index.html');
+    if (blackListTag) {
+        response.sendFile(dirname + '/fuck_u.html');
     }
     else {
-        response.sendFile(dirname + '/404.html');
+        if (routeList[path] || paperReg.test(path)) {
+            // let fileName = routeList[path] || 'index.html';
+            // response.sendFile(dirname + fileName);
+            response.sendFile(dirname + '/index.html');
+        }
+        else {
+            response.sendFile(dirname + '/404.html');
+        }
     }
 };
 

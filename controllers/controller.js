@@ -19,6 +19,14 @@ var controller = function(request, response) {
         var viewSqlModule = require('../models/' + controllerList[request.path] +'.js')
         viewSqlModule.sqlQuery(request, callbackFunc);
     }
+    else {
+        var result = {
+                'en': 'fuck you little bitch!',
+                'zh': '你是不是想搞事？'
+            };
+        
+        callbackFunc(result);
+    }
 }
 
 module.exports.controller = controller;

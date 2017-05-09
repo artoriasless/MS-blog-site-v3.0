@@ -19,8 +19,8 @@ app.use(express.static('static'));
 
 app.get('/*', function(request, response) {
     var clientIp        = request.headers['x-real-ip'] ? request.headers['x-real-ip'] : request.ip.replace(/::ffff:/, ''),
-        logCallbackFunc = function() {
-            router.route(__dirname, request, response);
+        logCallbackFunc = function(blackListTag) {
+            router.route(__dirname, request, response, blackListTag);
         };
 
     /* 记录客户端访问者的ip，用于设置黑名单 */
