@@ -83,7 +83,7 @@ CREATE TABLE `tags_index` (
 DROP TABLE IF EXISTS `timeline_index`;
 CREATE TABLE `timeline_index` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `timeline` char(10) NOT NULL,
+  `timeline` char(7) NOT NULL,
   `papers_count` int(10) unsigned NOT NULL,
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
