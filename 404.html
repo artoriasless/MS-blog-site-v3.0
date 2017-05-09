@@ -11,11 +11,30 @@
     </head>
 
     <body>
-        <p style="text-align: center;">访问地址出错啦！！！</p>
-        <br><br><br>
-        <p style="text-align: center;">type correct url please,little bitch!</p>
-        <br><br><br>
-        <p style="text-align: center;"><a id="indexLink" href="">返回首页</a></p>
+        <div id="contentContainer">
+            <p>访问地址出错啦</p>
+            <br><br><br>
+            <p>type correct url please,little bitch!</p>
+            <br><br><br>
+            <p><a id="indexLink" href="">返回首页</a></p>
+        </div>
+        <style>
+            body {
+                min-width: 500px;
+                min-height: 400px;
+            }
+            #contentContainer {
+                position: absolute;
+                display: inline-block;
+                width: 400px;
+                height: 300px;
+                left: 50%;
+                top: 50%;
+                margin-left: -200px;
+                margin-top: -150px;
+                text-align: center;
+            }
+        </style>
         <script>
             var domain = 'http://' + document.URL.split('/')[2];
             document.getElementById('indexLink').setAttribute('href', domain);
