@@ -9,7 +9,7 @@ import { initDirectoryFilterAction } from '../actions';
 
 import common_getDomain from '../modules/common_get_domain';
 
-var mapStateToProps = (state) => {
+var mapStateToProps = (state, props) => {
     var timeline = state.appReducer.timeline ? state.appReducer.timeline : [];
     
     return ({
@@ -17,7 +17,7 @@ var mapStateToProps = (state) => {
     });
 };
 
-var mapDispatchToProps = (dispatch) => {
+var mapDispatchToProps = (dispatch, props) => {
     var ajaxInitTimeline = () => (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getTimeline.node';

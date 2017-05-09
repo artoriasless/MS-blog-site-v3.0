@@ -66,11 +66,16 @@ class UI_directoryItem extends React.Component {
     };
 
     componentDidMount() {
-        const { initDirectory } = this.props;
+        const { passState, directory, initDirectoryFilter, initDirectory } = this.props;
 
         if (initDirectory) {
             /* 筛选的目录和总目录复用的本组件，需判断一下 */
             initDirectory();
+        }
+        else {
+            if (directory.length === 0) {
+                initDirectoryFilter(passState.keyword, passState.keywordType);
+            }
         }
     };
 

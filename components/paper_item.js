@@ -9,7 +9,7 @@ import { initCommentsAction }   from '../actions';
 
 import common_getDomain from '../modules/common_get_domain';
 
-var mapStateToProps = (state) => {
+var mapStateToProps = (state, props) => {
     var defaultPaper = {
             paperTitle    : '',
             paperDate     : '',
@@ -96,7 +96,7 @@ var mapStateToProps = (state) => {
     });
 };
 
-var mapDispatchToProps = (dispatch) => {
+var mapDispatchToProps = (dispatch, props) => {
     var ajaxInitPaper = (currentPaperId) => (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getPaper.node';

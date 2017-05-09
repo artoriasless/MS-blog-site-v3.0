@@ -22,7 +22,13 @@ class TimelineItem extends React.Component {
         return (
             <dd>
                 <Link 
-                    to      = "/directoryFilter"
+                    to      = {{
+                        pathname:"/directoryFilter",
+                        state   : {
+                            keyword    : timeline,
+                            keywordType: 'timeline'
+                        }
+                    }}
                     onClick = { () => this.directoryFilter(timeline, 'timeline') }
                 >
                     <span className = "time-val">{ timeline }</span>

@@ -40,6 +40,9 @@ class PageDirectoryFilter extends React.Component {
     };
 
     render() {
+        var pass_keyword     = this.props.location.state ? this.props.location.state.keyword : '',
+            pass_keywordType = this.props.location.state ? this.props.location.state.keywordType : '';
+
         $('body').removeClass('init-index');
 
         return (
@@ -91,7 +94,12 @@ class PageDirectoryFilter extends React.Component {
 
                         <div className = "col-xs-9">
                             {/* 目录列表 */}
-                            <DirectoryFilterItemList/>
+                            <DirectoryFilterItemList
+                                passState = {{
+                                    keyword    : pass_keyword,
+                                    keywordType: pass_keywordType
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

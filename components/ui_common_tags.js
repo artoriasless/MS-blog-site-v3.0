@@ -20,7 +20,13 @@ class TagItem extends React.Component {
         return (
             <dd>
                 <Link 
-                    to      = "/directoryFilter"
+                    to      = {{
+                        pathname:"/directoryFilter",
+                        state   : {
+                            keyword    : tagName,
+                            keywordType: 'tag'
+                        }
+                    }}
                     onClick = { () => this.directoryFilter(tagName, 'tag') }
                 >
                     <span className = "tag-name">{ tagName }</span>

@@ -10,7 +10,7 @@ import { initCommentsAction }   from '../actions';
 
 import common_getDomain from '../modules/common_get_domain';
 
-var mapStateToProps = (state) => {
+var mapStateToProps = (state, props) => {
     var latest = state.appReducer.latest ? state.appReducer.latest : [];
     
     return ({
@@ -18,7 +18,7 @@ var mapStateToProps = (state) => {
     });
 };
 
-var mapDispatchToProps = (dispatch) => {
+var mapDispatchToProps = (dispatch, props) => {
     var ajaxInitLatest = () => (dispatch) => {
         const domain     = common_getDomain();
         const requestUrl = domain + '/getLatest.node';
