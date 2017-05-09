@@ -44,6 +44,7 @@ var log = function(ip, callbackFunc) {
                 /* 当前时间（一分钟内）第一次访问 */
                 originData.ipList.push(ip);
                 originData.visitList.push({
+                    'ipAddress'    : ip,
                     'visitDateList': [fullDateStr]
                 })
             }
