@@ -1,5 +1,5 @@
 /* 设置每分钟最大请求次数 */
-const MAX_VISIT_TIME = 6;
+var MAX_VISIT_TIME = 6;
 /* 用于记录客户端访问的ip地址，设置黑名单 */
 var fs = require('fs');
 
