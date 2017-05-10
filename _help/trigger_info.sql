@@ -6,7 +6,7 @@ BEFORE INSERT ON `papers_table`
 FOR EACH ROW 
 BEGIN
 SET new.content = REPLACE(REPLACE(new.content, CHAR(10), ''), CHAR(13), '');
-SET new.timeline = new.publish_date;
+SET new.timeline = left(new.publish_date, 7);
 END
 
 CREATE TRIGGER `add_trigger_after` 
@@ -41,7 +41,7 @@ DELETE FROM subcomment_table WHERE paper_id = old.id;
 END
 
 /*
-【文章修改一篇时，tags_index的触发器】
+【文章修改一篇时，tags_index的触发器】（暂时用不到）
 */
 CREATE TRIGGER `update_trigger_before` 
 BEFORE UPDATE ON `papers_table`

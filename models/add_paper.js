@@ -10,10 +10,9 @@ var sqlQuery = function(request, callbackFunc) {
         tag          = request.body.tag,
         subtag       = request.body.subtag,
         publish_data = request.body.publish_data,
-        timeline     = request.body.timeline,
         abstract     = request.body.abstract,
         content      = request.body.content,
-        values       = '\'' + title + '\',\'' + tag + '\',\'' + subtag + '\',\'' + publish_data + '\',\'' + timeline + '\',\'' + abstract + '\',\'' + content + '\'';
+        values       = '\'' + title + '\',\'' + tag + '\',\'' + subtag + '\',\'' + publish_data + '\',\'' + abstract + '\',\'' + content + '\'';
 
     addSqlStr = 'INSERT INTO papers_table ' +
                 '(title, tag, subtag, publish_date, timeline, abstract, content) ' +
