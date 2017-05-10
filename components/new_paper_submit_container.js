@@ -41,7 +41,6 @@ class SubmitContainer extends React.Component {
                 tag         : paperTag,
                 subtag      : paperSubtag,
                 publish_data: currentTime,
-                timeline    : currentTime.slice(0, 7),
                 abstract    : paperAbstract,
                 content     : this.props.contentList.join('')
             };
