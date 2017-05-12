@@ -36,7 +36,8 @@ class InputArea extends React.Component {
         if (selectedParagraphType.name === 'code' || selectedParagraphType.name === 'refer') {
             /* set indent val */
             if (selectedParagraphType.name === 'code') {
-                const indentVal = contentVal.split('/')[1] ? contentVal.split('/')[1] : '0';
+                const indentReg = /^\/(\d+)\//g;
+                const indentVal = contentVal.match(indentReg) ? indentReg.exec(contentVal)[1] : '0';
                 const tmpBegin  = selectedParagraphType.begin.replace('/indentVal/', indentVal);
                 
                 var tmpContent = '';
