@@ -1,5 +1,7 @@
+import common_dataDeepCopy from '../modules/common_data_deep_copy';
+
 var initDirectoryFilterFunc = (originState, action) => {
-    var newState        = Object.assign({}, originState),
+    var newState        = Object.assign ? Object.assign({}, originState) : common_dataDeepCopy(originState),
         directoryFilter = action.payload.data;
 
     delete newState.directoryFilter;
