@@ -20,39 +20,55 @@ var formatTime = (date) => {
 var log = function(ip, callbackFunc) {
     var fullDateStr  = formatTime(new Date()),
         dateStr      = fullDateStr.slice(0, 16).replace(/\-|\s|\:/g, '_'),
-        fileName     = './logs/' + dateStr + '.json';
+        dateStrShort = dateStr.slice(0, 10),
+        fileName     = './logs/' + dateStrShort + '.json';
         blackListTag = false;
 
     fs.readFile(fileName, function(err, data) {
         if (err) {
-            var originData = {
-                    'ipList'   : [ip],
-                    'visitList': [
-                        {
-                            'ipAddress'    : ip,
-                            'visitDateList': [fullDateStr]
-                        }
-                    ]
-                };
+            var originData = {};
+
+            originData[dateStr] = {
+                'ipList'   : [ip],
+                'visitList': [
+                    {
+                        'ipAddress'    : ip,
+                        'visitDateList': [fullDateStr]
+                    }
+                ]
+            };
         }
         else {
-            var originData = JSON.parse(data.toString()),
-                ipCount    = originData.ipList.length,
-                ipIndex    = originData.ipList.indexOf(ip);
+            var originData   = JSON.parse(data.toString());
 
-            if (ipIndex === -1) {
-                /* 当前时间（一分钟内）第一次访问 */
-                originData.ipList.push(ip);
-                originData.visitList.push({
+            if (!originData[dateStr]) {
+                /* 新的一分钟（一个周期）开始 */
+                originData[dateStr] = {};
+                originData[dateStr].ipList    = [ip];
+                originData[dateStr].visitList = [{
                     'ipAddress'    : ip,
                     'visitDateList': [fullDateStr]
-                })
+                }];
             }
             else {
-                var ipVisitDateList = originData.visitList[ipIndex].visitDateList;
+                /* 还未过一分钟 */
+                var ipIndex = originData[dateStr].ipList.indexOf(ip),
+                    ipCount = originData[dateStr].ipList.length;
+                
+                if (ipIndex === -1) {
+                    /* 当前时间（一分钟内）第一次访问 */
+                    originData[dateStr].ipList.push(ip);
+                    originData[dateStr].visitList.push({
+                        'ipAddress'    : ip,
+                        'visitDateList': [fullDateStr]
+                    })
+                }
+                else {
+                    var ipVisitDateList = originData[dateStr].visitList[ipIndex].visitDateList;
 
-                ipVisitDateList.push(fullDateStr);
-                blackListTag = (ipVisitDateList.length > MAX_VISIT_TIME) ? true : false;
+                    ipVisitDateList.push(fullDateStr);
+                    blackListTag = (ipVisitDateList.length > MAX_VISIT_TIME) ? true : false;
+                }
             }
         }
 
