@@ -73,8 +73,42 @@ var log = function(ip, callbackFunc) {
         }
 
         fs.writeFile(fileName, JSON.stringify(originData), function() {
-            callbackFunc(blackListTag);
-        })
+            /* 正常保存当天访问者ip信息后，将该ip信息记录到汇总信息中 */
+            fs.readFile('./logs/summary.json', function(summaryErr, summaryData) {
+                var ipKey = ip.replace('.', '_'),
+                    initData;
+
+                if (summaryErr) {
+                    initData = {}; 
+
+                    initData[ipKey] = {
+                        'visitDate' : [fullDateStr],
+                        'visitTimes': 1
+                    };
+                }
+                else {
+                    initData = JSON.parse(summaryData.toString());
+
+                    if (!initData[ipKey]) {
+                        initData[ipKey] = {
+                            'visitDate' : [fullDateStr],
+                            'visitTimes': 1
+                        };
+                    }
+                    else {
+                        if (initData[ipKey].visitDate.indexOf(fullDateStr) == -1) {
+                            initData[ipKey].visitDate.push(fullDateStr);
+                        }
+                        initData[ipKey].visitTimes += 1;
+                    }
+                }
+
+                fs.writeFile('./logs/summary.json', JSON.stringify(initData), function() {
+                    /* 正常保存访问者的ip信息到总览，并调用回调函数 */
+                    callbackFunc(blackListTag);
+                });
+            });
+        });
     });
 };
 
