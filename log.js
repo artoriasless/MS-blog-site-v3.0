@@ -75,7 +75,7 @@ var log = function(ip, callbackFunc) {
         fs.writeFile(fileName, JSON.stringify(originData), function() {
             /* 正常保存当天访问者ip信息后，将该ip信息记录到汇总信息中 */
             fs.readFile('./logs/summary.json', function(summaryErr, summaryData) {
-                var ipKey = ip.replace('.', '_'),
+                var ipKey = ip.replace(/\./g, '_'),
                     initData;
 
                 if (summaryErr) {
