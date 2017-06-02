@@ -251,10 +251,10 @@ i.fa-qq       { color: #24202b; }
 .paper-content p.sub-chapter { font-size: 0.9em;font-weight: 500;text-align: center; }
 .paper-content p .external-link { color: #337ab7;font-size: 0.85em;font-weight: bold; }
 .paper-content .refer-content { padding: 5px;margin: 5px 10px;border: 1px solid #aaa; border-radius: 5px;font-size: 0.85em;color: #000;background-color: #fff;}
-.paper-content .img-container.size-lg { max-height: 500px; }
-.paper-content .img-container.size-md { max-height: 350px; }
-.paper-content .img-container.size-sm { max-height: 200px; }
-.paper-content .img-container.size-xs { max-height: 100px; }
+.paper-content .img-container.size-lg, .paper-content .img-container.size-lg img { max-height: 500px; }
+.paper-content .img-container.size-md, .paper-content .img-container.size-md img { max-height: 350px; }
+.paper-content .img-container.size-sm, .paper-content .img-container.size-sm img { max-height: 200px; }
+.paper-content .img-container.size-xs, .paper-content .img-container.size-xs img { max-height: 100px; }
 .paper-content .img-container {	margin: 15px 0;text-align: center; }
 .paper-content .img-container img { max-width: 100%; }
 /* code container */
